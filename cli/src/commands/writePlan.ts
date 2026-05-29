@@ -1,0 +1,31 @@
+import { Command } from "commander";
+import { envelope, planBookshelfMove, planNotesPublicize, printJson } from "../lib.js";
+
+export function writePlanCommand(): Command {
+  const command = new Command("write-plan").description("Print dry-run plans for account mutations.");
+
+  const books = new Command("books").description("Book/shelf mutation plans.");
+  books
+    .command("move")
+    .description("Plan a book/review shelf move without submitting it.")
+    .requiredOption("--review-id <id>", "Goodreads review id from a shelf row.")
+    .requiredOption("--to-shelf <slug>", "Discovered target shelf slug.")
+    .option("--user <id>", "Goodreads numeric user id.", "179929687")
+    .action((options: { reviewId: string; toShelf: string; user: string }) => {
+      printJson(envelope(planBookshelfMove(options)));
+    });
+
+  const notes = new Command("notes").description("Notes/highlights mutation plans.");
+  notes
+    .command("publicize")
+    .description("Plan publicizing all notes for a book.")
+    .requiredOption("--book-id <id>", "Goodreads book id.")
+    .option("--user-slug <slug>", "Goodreads user slug for reload verification.")
+    .action((options: { bookId: string; userSlug?: string }) => {
+      printJson(envelope(planNotesPublicize(options)));
+    });
+
+  command.addCommand(books);
+  command.addCommand(notes);
+  return command;
+}

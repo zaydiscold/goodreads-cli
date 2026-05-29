@@ -1,0 +1,1336 @@
+{
+  "source": "goodreads-web",
+  "generatedAt": "2026-05-27T02:39:35.393Z",
+  "confidence": "high",
+  "warnings": [],
+  "data": {
+    "routeCount": 78,
+    "routes": [
+      {
+        "id": "get_amazon-purchases",
+        "method": "GET",
+        "path": "/amazon_purchases",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Amazon purchases import/inspection page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_ask-the-author",
+        "method": "GET",
+        "path": "/ask_the_author",
+        "tags": [
+          "social",
+          "discovery"
+        ],
+        "summary": "Ask the Author index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_author",
+        "method": "GET",
+        "path": "/author",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Authors index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_author-show-author-slug",
+        "method": "GET",
+        "path": "/author/show/{author_slug}",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Author detail page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "author_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_award",
+        "method": "GET",
+        "path": "/award",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Awards index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_award-show-award-slug",
+        "method": "GET",
+        "path": "/award/show/{award_slug}",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Award detail page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "award_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_book",
+        "method": "GET",
+        "path": "/book",
+        "tags": [
+          "books",
+          "discovery"
+        ],
+        "summary": "Explore/books hub page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_book-popular-by-date-year-month",
+        "method": "GET",
+        "path": "/book/popular_by_date/{year}/{month}",
+        "tags": [
+          "books",
+          "discovery"
+        ],
+        "summary": "New releases / popular by date page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "month",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_book-show-book-slug",
+        "method": "GET",
+        "path": "/book/show/{book_slug}",
+        "tags": [
+          "books"
+        ],
+        "summary": "Book detail page. Current page is Next.js-backed.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "book_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_book-similar-work-slug",
+        "method": "GET",
+        "path": "/book/similar/{work_slug}",
+        "tags": [
+          "books",
+          "discovery"
+        ],
+        "summary": "Readers also enjoyed / similar books page for a work.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "work_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_choiceawards",
+        "method": "GET",
+        "path": "/choiceawards",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Goodreads Choice Awards page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_comment-list-user-slug",
+        "method": "GET",
+        "path": "/comment/list/{user_slug}",
+        "tags": [
+          "social"
+        ],
+        "summary": "User comments/recent posts page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_friend",
+        "method": "GET",
+        "path": "/friend",
+        "tags": [
+          "social"
+        ],
+        "summary": "Friends index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_friend-requests",
+        "method": "GET",
+        "path": "/friend/requests",
+        "tags": [
+          "social"
+        ],
+        "summary": "Friend requests page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_genres",
+        "method": "GET",
+        "path": "/genres",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Genre index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_genres-genre-slug",
+        "method": "GET",
+        "path": "/genres/{genre_slug}",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Genre landing page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "genre_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_genres-list",
+        "method": "GET",
+        "path": "/genres/list",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Alphabetical genre shelves index.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_genres-search",
+        "method": "GET",
+        "path": "/genres/search",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Genre finder route.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "shelf",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_giveaway",
+        "method": "GET",
+        "path": "/giveaway",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Giveaways index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_group",
+        "method": "GET",
+        "path": "/group",
+        "tags": [
+          "social",
+          "discovery"
+        ],
+        "summary": "Groups index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_group-show-group-slug",
+        "method": "GET",
+        "path": "/group/show/{group_slug}",
+        "tags": [
+          "social",
+          "discovery"
+        ],
+        "summary": "Public group detail page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "group_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_home",
+        "method": "GET",
+        "path": "/",
+        "tags": [
+          "profile"
+        ],
+        "summary": "Recent updates home/feed page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_interviews",
+        "method": "GET",
+        "path": "/interviews",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Interviews index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_interviews-show-interview-slug",
+        "method": "GET",
+        "path": "/interviews/show/{interview_slug}",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Interview detail page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "interview_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_list",
+        "method": "GET",
+        "path": "/list",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Listopia lists index.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_list-show-list-id",
+        "method": "GET",
+        "path": "/list/show/{list_id}",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Public Listopia list page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "list_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_message-folder",
+        "method": "GET",
+        "path": "/message/{folder}",
+        "tags": [
+          "social"
+        ],
+        "summary": "User message folder page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "folder",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_message-inbox",
+        "method": "GET",
+        "path": "/message/inbox",
+        "tags": [
+          "social"
+        ],
+        "summary": "User message inbox.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_message-mark-all-as-read",
+        "method": "GET",
+        "path": "/message/mark_all_as_read",
+        "tags": [
+          "social"
+        ],
+        "summary": "Mark all visible inbox messages read.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "get_message-show-message-id",
+        "method": "GET",
+        "path": "/message/show/{message_id}",
+        "tags": [
+          "social"
+        ],
+        "summary": "Message detail page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "message_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_news",
+        "method": "GET",
+        "path": "/news",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "News and interviews index page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_notes-book-slug-user-slug",
+        "method": "GET",
+        "path": "/notes/{book_slug}/{user_slug}",
+        "tags": [
+          "notes"
+        ],
+        "summary": "Notes/highlights detail page for one book and user.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "book_slug",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "user_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_notes-user-id-load-more",
+        "method": "GET",
+        "path": "/notes/{user_id}/load_more",
+        "tags": [
+          "notes"
+        ],
+        "summary": "Paginated notes/highlights index loader.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_notes-user-slug",
+        "method": "GET",
+        "path": "/notes/{user_slug}",
+        "tags": [
+          "notes"
+        ],
+        "summary": "User Kindle Notes & Highlights index.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_notifications",
+        "method": "GET",
+        "path": "/notifications",
+        "tags": [
+          "social"
+        ],
+        "summary": "User notifications page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_opensearch-xml",
+        "method": "GET",
+        "path": "/opensearch.xml",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "OpenSearch descriptor for Goodreads book search.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_questions-question-slug",
+        "method": "GET",
+        "path": "/questions/{question_slug}",
+        "tags": [
+          "social",
+          "discovery"
+        ],
+        "summary": "Book or author community question page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "question_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_quotes",
+        "method": "GET",
+        "path": "/quotes",
+        "tags": [
+          "quotes",
+          "discovery"
+        ],
+        "summary": "Public quotes index.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_quotes-list",
+        "method": "GET",
+        "path": "/quotes/list",
+        "tags": [
+          "profile"
+        ],
+        "summary": "Current user's quotes list.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_quotes-quote-slug",
+        "method": "GET",
+        "path": "/quotes/{quote_slug}",
+        "tags": [
+          "quotes",
+          "discovery"
+        ],
+        "summary": "Public quote detail page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "quote_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_quotes-widget-user-slug",
+        "method": "GET",
+        "path": "/quotes/widget/{user_slug}",
+        "tags": [
+          "profile"
+        ],
+        "summary": "User quotes widget script.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_recommendations",
+        "method": "GET",
+        "path": "/recommendations",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Personalized recommendations page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_recommendations-to-me",
+        "method": "GET",
+        "path": "/recommendations/to_me",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Friends' recommendations page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_review-drafts",
+        "method": "GET",
+        "path": "/review/drafts",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Review drafts page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_review-duplicates",
+        "method": "GET",
+        "path": "/review/duplicates",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Duplicate books tool.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_review-import",
+        "method": "GET",
+        "path": "/review/import",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Import/export page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_review-list",
+        "method": "GET",
+        "path": "/review/list",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Current user's My Books page.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_review-list-rss-user",
+        "method": "GET",
+        "path": "/review/list_rss/{user}",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Public shelf RSS feed for a user's books.",
+        "description": "This public XML route is the cleanest current read API for shelf exports. Authenticated shelf pages\ncan expose a private keyed RSS URL; do not log or commit that key.\n",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_review-list-user",
+        "method": "GET",
+        "path": "/review/list/{user}",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Bookshelf list for a user, optionally filtered by shelf.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "print",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_review-stats-user",
+        "method": "GET",
+        "path": "/review/stats/{user}",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Reading stats page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_search-search",
+        "method": "GET",
+        "path": "/search/search",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Canonical book search route from OpenSearch descriptor.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "search_type",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "search[query]",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_shelf",
+        "method": "GET",
+        "path": "/shelf",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Top public shelves index.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_shelf-show-shelf-slug",
+        "method": "GET",
+        "path": "/shelf/show/{shelf_slug}",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Public shelf landing page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "shelf_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_tooltips",
+        "method": "GET",
+        "path": "/tooltips",
+        "tags": [
+          "books"
+        ],
+        "summary": "Batch tooltip metadata for book ids shown in shelf/list pages.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "resources[Book.{id}][id]",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "resources[Book.{id}][type]",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "use_wtr_tooltip",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_topic",
+        "method": "GET",
+        "path": "/topic",
+        "tags": [
+          "social"
+        ],
+        "summary": "Discussions page, optionally filtered to groups.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "discussion_filter",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_user-best-reviewers",
+        "method": "GET",
+        "path": "/user/best_reviewers",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "People discovery page for most popular reviewers.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_user-delayable-user-show-user-id",
+        "method": "GET",
+        "path": "/user/delayable_user_show/{user_id}",
+        "tags": [
+          "profile"
+        ],
+        "summary": "Profile delay-loaded sections.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "skip_cache",
+            "in": "query",
+            "required": false
+          },
+          {
+            "name": "csm_scope",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_user-following-most-followed",
+        "method": "GET",
+        "path": "/user_following/most_followed",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "People discovery page for most-followed users.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_user-show-user-slug",
+        "method": "GET",
+        "path": "/user/show/{user_slug}",
+        "tags": [
+          "profile"
+        ],
+        "summary": "User profile page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_user-top-readers",
+        "method": "GET",
+        "path": "/user/top_readers",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "People discovery page for top readers.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_user-top-reviewers",
+        "method": "GET",
+        "path": "/user/top_reviewers",
+        "tags": [
+          "discovery"
+        ],
+        "summary": "People discovery page for top reviewers.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_user-year-in-books-year-user-id",
+        "method": "GET",
+        "path": "/user/year_in_books/{year}/{user_id}",
+        "tags": [
+          "profile"
+        ],
+        "summary": "Year in Books page.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_work-editions-work-id",
+        "method": "GET",
+        "path": "/work/editions/{work_id}",
+        "tags": [
+          "books",
+          "discovery"
+        ],
+        "summary": "Editions page for a work.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "work_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "get_work-quotes-work-id",
+        "method": "GET",
+        "path": "/work/quotes/{work_id}",
+        "tags": [
+          "books",
+          "quotes"
+        ],
+        "summary": "Quotes page for a work.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "work_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": false,
+        "requiresApproval": false
+      },
+      {
+        "id": "post_message-move-batch",
+        "method": "POST",
+        "path": "/message/move_batch",
+        "tags": [
+          "social"
+        ],
+        "summary": "Batch message folder/read action.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_notes-book-id-annotation-pair-id-note",
+        "method": "POST",
+        "path": "/notes/{book_id}/{annotation_pair_id}/note",
+        "tags": [
+          "notes"
+        ],
+        "summary": "Likely per-note \"add your thoughts\" persistence endpoint.",
+        "description": "Discovered from `.js-readingNote[data-note-persist-endpoint]` DOM attributes. Not submitted in this run.\nMethod and payload need a dedicated approved write capture before CLI execution support.\n",
+        "parameters": [
+          {
+            "name": "book_id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "annotation_pair_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_notifications-track",
+        "method": "POST",
+        "path": "/notifications/track",
+        "tags": [
+          "analytics"
+        ],
+        "summary": "Notification tracking call emitted by the UI.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_review-update-book-id",
+        "method": "POST",
+        "path": "/review/update/{book_id}",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Inline review/date/notes field update for one book.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "book_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_review-update-list-user-id",
+        "method": "POST",
+        "path": "/review/update_list/{user_id}",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Batch update selected reviews/books on a user's shelf table.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_review-update-session-shelf-settings",
+        "method": "POST",
+        "path": "/review/update_session_shelf_settings",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Update transient shelf-table UI settings in the session.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_shelf-add-to-shelf",
+        "method": "POST",
+        "path": "/shelf/add_to_shelf",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Add or remove one book from a shelf through the shelf chooser helper.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_shelf-move-batch",
+        "method": "POST",
+        "path": "/shelf/move_batch",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Reorder books/shelves in batch.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_shelf-move-batch-user-id",
+        "method": "POST",
+        "path": "/shelf/move_batch/{user_id}",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Persist shelf-table position changes for a user.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_shelf-move-to-position",
+        "method": "POST",
+        "path": "/shelf/move_to_position",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Move one shelf/book row to a specific position.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_shelf-remove-book",
+        "method": "POST",
+        "path": "/shelf/remove_book",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Remove one book from a shelf from the button helper.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_shelf-update-shelf-id",
+        "method": "POST",
+        "path": "/shelf/update/{shelf_id}",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Update shelf display/settings.",
+        "description": null,
+        "parameters": [
+          {
+            "name": "shelf_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "post_user-shelves",
+        "method": "POST",
+        "path": "/user_shelves",
+        "tags": [
+          "shelves"
+        ],
+        "summary": "Create a custom user shelf.",
+        "description": null,
+        "parameters": [],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      },
+      {
+        "id": "put_notes-book-id-share",
+        "method": "PUT",
+        "path": "/notes/{book_id}/share",
+        "tags": [
+          "notes"
+        ],
+        "summary": "Bulk publicize notes/highlights for a book.",
+        "description": "Observed through the \"Make all N visible\" button. This is a real account mutation.\nUse dry-run by default and verify on reload by counting `.js-readingNote[data-visible=true]`.\n",
+        "parameters": [
+          {
+            "name": "book_id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "mutatesAccount": true,
+        "requiresApproval": true
+      }
+    ]
+  }
+}

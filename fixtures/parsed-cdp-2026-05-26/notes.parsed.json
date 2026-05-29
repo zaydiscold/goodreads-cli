@@ -1,0 +1,427 @@
+{
+  "detectedKind": "html_page",
+  "generatedAt": "2026-05-26T21:34:35Z",
+  "h1": [],
+  "kind": "html_page",
+  "linkCount": 102,
+  "links": [
+    {
+      "href": "/?ref=nav_home",
+      "label": "Home"
+    },
+    {
+      "href": "/review/list/{id}?ref=nav_mybooks",
+      "label": "My Books"
+    },
+    {
+      "href": "/book?ref=nav_brws",
+      "label": "Browse \u25be"
+    },
+    {
+      "href": "/recommendations?ref=nav_brws_recs",
+      "label": "Recommendations"
+    },
+    {
+      "href": "/choiceawards?ref=nav_brws_gca",
+      "label": "Choice Awards"
+    },
+    {
+      "href": "/genres?ref=nav_brws_genres",
+      "label": "Genres"
+    },
+    {
+      "href": "/giveaway?ref=nav_brws_giveaways",
+      "label": "Giveaways"
+    },
+    {
+      "href": "/new_releases?ref=nav_brws_newrels",
+      "label": "New Releases"
+    },
+    {
+      "href": "/list?ref=nav_brws_lists",
+      "label": "Lists"
+    },
+    {
+      "href": "/book?ref=nav_brws_explore",
+      "label": "Explore"
+    },
+    {
+      "href": "/news?ref=nav_brws_news",
+      "label": "News & Interviews"
+    },
+    {
+      "href": "/group?ref=nav_comm",
+      "label": "Community \u25be"
+    },
+    {
+      "href": "/group?ref=nav_comm_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/quotes?ref=nav_comm_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/ask_the_author?ref=nav_comm_askauthor",
+      "label": "Ask the Author"
+    },
+    {
+      "href": "/user/best_reviewers?ref=nav_comm_people",
+      "label": "People"
+    },
+    {
+      "href": "/message/inbox?ref=nav_my_messages",
+      "label": "1"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "Profile"
+    },
+    {
+      "href": "/friend?ref=nav_profile_friends",
+      "label": "Friends"
+    },
+    {
+      "href": "/group/list/{user_slug}?ref=nav_profile_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/comment/list/{user_slug}?ref=nav_profile_comment",
+      "label": "Comments"
+    },
+    {
+      "href": "https://www.goodreads.com/readingchallenges?ref=web_ingress",
+      "label": "Reading Challenge"
+    },
+    {
+      "href": "/notes?ref=nav_profile_knh",
+      "label": "Kindle Notes & Highlights"
+    },
+    {
+      "href": "/quotes/list?ref=nav_profile_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/user/edit_fav_genres?ref=nav_profile_favgenre&return_url=%2Fnotes%2F179929687-{user}-khan",
+      "label": "Favorite genres"
+    },
+    {
+      "href": "/recommendations/to_me?ref=nav_profile_friendrec",
+      "label": "Friends\u2019 recommendations"
+    },
+    {
+      "href": "/user/edit?ref=nav_profile_settings",
+      "label": "Account settings"
+    },
+    {
+      "href": "/help?action_type=help_nav_bar&ref=nav_profile_help",
+      "label": "Help"
+    },
+    {
+      "href": "/user/sign_out?ref=nav_profile_signout",
+      "label": "Sign out"
+    },
+    {
+      "href": "/message/inbox?ref=nav_my_messages",
+      "label": "1"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "{user}"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "View profile"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "Profile"
+    },
+    {
+      "href": "/friend?ref=nav_profile_friends",
+      "label": "Friends"
+    },
+    {
+      "href": "/group/list/{user_slug}?ref=nav_profile_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/comment/list/{user_slug}?ref=nav_profile_comment",
+      "label": "Comments"
+    },
+    {
+      "href": "https://www.goodreads.com/readingchallenges?ref=web_ingress",
+      "label": "Reading Challenge"
+    },
+    {
+      "href": "/notes?ref=nav_profile_knh",
+      "label": "Kindle Notes & Highlights"
+    },
+    {
+      "href": "/quotes/list?ref=nav_profile_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/user/edit_fav_genres?ref=nav_profile_favgenre&return_url=%2Fnotes%2F179929687-{user}-khan",
+      "label": "Favorite genres"
+    },
+    {
+      "href": "/recommendations/to_me?ref=nav_profile_friendrec",
+      "label": "Friends\u2019 recommendations"
+    },
+    {
+      "href": "/user/edit?ref=nav_profile_settings",
+      "label": "Account settings"
+    },
+    {
+      "href": "/help?action_type=help_nav_bar&ref=nav_profile_help",
+      "label": "Help"
+    },
+    {
+      "href": "/user/sign_out?ref=nav_profile_signout",
+      "label": "Sign out"
+    },
+    {
+      "href": "/?ref=nav_home",
+      "label": "Home"
+    },
+    {
+      "href": "/review/list/{id}?ref=nav_mybooks",
+      "label": "My Books"
+    },
+    {
+      "href": "/book?ref=nav_brws",
+      "label": "Browse \u25be"
+    },
+    {
+      "href": "/recommendations?ref=nav_brws_recs",
+      "label": "Recommendations"
+    },
+    {
+      "href": "/choiceawards?ref=nav_brws_gca",
+      "label": "Choice Awards"
+    },
+    {
+      "href": "/genres?ref=nav_brws_genres",
+      "label": "Genres"
+    },
+    {
+      "href": "/giveaway?ref=nav_brws_giveaways",
+      "label": "Giveaways"
+    },
+    {
+      "href": "/new_releases?ref=nav_brws_newrels",
+      "label": "New Releases"
+    },
+    {
+      "href": "/list?ref=nav_brws_lists",
+      "label": "Lists"
+    },
+    {
+      "href": "/book?ref=nav_brws_explore",
+      "label": "Explore"
+    },
+    {
+      "href": "/news?ref=nav_brws_news",
+      "label": "News & Interviews"
+    },
+    {
+      "href": "/group?ref=nav_comm",
+      "label": "Community \u25be"
+    },
+    {
+      "href": "/group?ref=nav_comm_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/quotes?ref=nav_comm_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/ask_the_author?ref=nav_comm_askauthor",
+      "label": "Ask the Author"
+    },
+    {
+      "href": "/user/best_reviewers?ref=nav_comm_people",
+      "label": "People"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "This Inevitable Ruin (Dungeon Crawler Carl #7) By Matt Dinniman View your notes\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Philosophy of Style By Herbert Spencer View your notes and highlights"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Sea Storm (Underwater Investigation Unit, #3) By Andrew Mayne View your notes a\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Girl Beneath the Sea (Underwater Investigation Unit, #1) By Andrew Mayne Vi\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Mr. Whisper (The Specialists, #1) By Andrew Mayne View your notes and highlights"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Sea Castle (Underwater Investigation Unit, #4) By Andrew Mayne View your notes\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Angel Killer (Jessica Blackwood, #1) By Andrew Mayne View your notes and highli\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Dungeon Anarchist's Cookbook (Dungeon Crawler Carl, #3) By Matt Dinniman Vi\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Butcher's Masquerade (Dungeon Crawler Carl, #5) By Matt Dinniman View your\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Gate of the Feral Gods (Dungeon Crawler Carl, #4) By Matt Dinniman View you\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Eye of the Bedlam Bride (Dungeon Crawler Carl, #6) By Matt Dinniman View yo\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Dungeon Crawler Carl (Dungeon Crawler Carl, #1) By Matt Dinniman View your note\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Carl's Doomsday Scenario (Dungeon Crawler Carl, #2) By Matt Dinniman View your\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "An Anthropologist on Mars: Seven Paradoxical Tales By Oliver Sacks View your no\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "A Brief History of Intelligence: Evolution, AI, and the Five Breakthroughs That\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Imposter Syndrome (The Specialists, #2) By Andrew Mayne View your notes and hig\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Final Equinox (Theo Cray & Jessica Blackwood #2) By Andrew Mayne View your\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Murder Theory (The Naturalist, #3) By Andrew Mayne View your notes and highligh\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Dark Pattern (The Naturalist, #4) By Andrew Mayne View your notes and highlights"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Mastermind (Theo Cray and Jessica Blackwood #1) By Andrew Mayne View your notes\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Looking Glass (The Naturalist, #2) By Andrew Mayne View your notes and highligh\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "The Naturalist (The Naturalist, #1) By Andrew Mayne View your notes and highlig\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "All These Worlds (Bobiverse, #3) By Dennis E. Taylor View your notes and highli\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Not Till We Are Lost (Bobiverse #5) By Dennis E. Taylor View your notes and hig\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "Heaven's River (Bobiverse, #4) By Dennis E. Taylor View your notes and highligh\u2026"
+    },
+    {
+      "href": "https://www.goodreads.com/notes/{work_slug}/{user_slug}?ref=abp",
+      "label": "For We Are Many (Bobiverse, #2) By Dennis E. Taylor View your notes and highlig\u2026"
+    },
+    {
+      "href": "/about/us",
+      "label": "About us"
+    },
+    {
+      "href": "/jobs",
+      "label": "Careers"
+    },
+    {
+      "href": "/about/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/about/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "https://help.goodreads.com/s/article/Goodreads-Interest-Based-Ads-Notice",
+      "label": "Interest Based Ads"
+    },
+    {
+      "href": "/adprefs",
+      "label": "Ad Preferences"
+    },
+    {
+      "href": "/ccbaprefs",
+      "label": "Your Ads Privacy Choices"
+    },
+    {
+      "href": "/help?action_type=help_web_footer",
+      "label": "Help"
+    },
+    {
+      "href": "/author/program",
+      "label": "Authors"
+    },
+    {
+      "href": "/advertisers",
+      "label": "Advertise"
+    },
+    {
+      "href": "/news?content_type=author_blogs",
+      "label": "Authors & ads blog"
+    },
+    {
+      "href": "/toggle_mobile",
+      "label": "Mobile version"
+    }
+  ],
+  "parser": "goodreads/tools/parse_fixtures.py",
+  "parserVersion": "0.1.0",
+  "redaction": {
+    "longDescriptions": "length-only",
+    "rawHighlights": "omitted",
+    "rawMessages": "omitted",
+    "rawReviews": "omitted"
+  },
+  "sourceFile": "fixtures/private-cdp-2026-05-26/notes.html",
+  "title": "My Kindle Notes & Highlights | Goodreads"
+}

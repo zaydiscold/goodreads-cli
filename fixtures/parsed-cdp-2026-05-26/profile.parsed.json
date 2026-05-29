@@ -1,0 +1,327 @@
+{
+  "detectedKind": "html_page",
+  "generatedAt": "2026-05-26T21:34:36Z",
+  "h1": [],
+  "kind": "html_page",
+  "linkCount": 77,
+  "links": [
+    {
+      "href": "/?ref=nav_home",
+      "label": "Home"
+    },
+    {
+      "href": "/review/list/{id}?ref=nav_mybooks",
+      "label": "My Books"
+    },
+    {
+      "href": "/book?ref=nav_brws",
+      "label": "Browse \u25be"
+    },
+    {
+      "href": "/recommendations?ref=nav_brws_recs",
+      "label": "Recommendations"
+    },
+    {
+      "href": "/choiceawards?ref=nav_brws_gca",
+      "label": "Choice Awards"
+    },
+    {
+      "href": "/genres?ref=nav_brws_genres",
+      "label": "Genres"
+    },
+    {
+      "href": "/giveaway?ref=nav_brws_giveaways",
+      "label": "Giveaways"
+    },
+    {
+      "href": "/new_releases?ref=nav_brws_newrels",
+      "label": "New Releases"
+    },
+    {
+      "href": "/list?ref=nav_brws_lists",
+      "label": "Lists"
+    },
+    {
+      "href": "/book?ref=nav_brws_explore",
+      "label": "Explore"
+    },
+    {
+      "href": "/news?ref=nav_brws_news",
+      "label": "News & Interviews"
+    },
+    {
+      "href": "/group?ref=nav_comm",
+      "label": "Community \u25be"
+    },
+    {
+      "href": "/group?ref=nav_comm_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/quotes?ref=nav_comm_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/ask_the_author?ref=nav_comm_askauthor",
+      "label": "Ask the Author"
+    },
+    {
+      "href": "/user/best_reviewers?ref=nav_comm_people",
+      "label": "People"
+    },
+    {
+      "href": "/message/inbox?ref=nav_my_messages",
+      "label": "1"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "Profile"
+    },
+    {
+      "href": "/friend?ref=nav_profile_friends",
+      "label": "Friends"
+    },
+    {
+      "href": "/group/list/{user_slug}?ref=nav_profile_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/comment/list/{user_slug}?ref=nav_profile_comment",
+      "label": "Comments"
+    },
+    {
+      "href": "https://www.goodreads.com/readingchallenges?ref=web_ingress",
+      "label": "Reading Challenge"
+    },
+    {
+      "href": "/notes?ref=nav_profile_knh",
+      "label": "Kindle Notes & Highlights"
+    },
+    {
+      "href": "/quotes/list?ref=nav_profile_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/user/edit_fav_genres?ref=nav_profile_favgenre&return_url=%2Fuser%2Fshow",
+      "label": "Favorite genres"
+    },
+    {
+      "href": "/recommendations/to_me?ref=nav_profile_friendrec",
+      "label": "Friends\u2019 recommendations"
+    },
+    {
+      "href": "/user/edit?ref=nav_profile_settings",
+      "label": "Account settings"
+    },
+    {
+      "href": "/help?action_type=help_nav_bar&ref=nav_profile_help",
+      "label": "Help"
+    },
+    {
+      "href": "/user/sign_out?ref=nav_profile_signout",
+      "label": "Sign out"
+    },
+    {
+      "href": "/message/inbox?ref=nav_my_messages",
+      "label": "1"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "{user}"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "View profile"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "Profile"
+    },
+    {
+      "href": "/friend?ref=nav_profile_friends",
+      "label": "Friends"
+    },
+    {
+      "href": "/group/list/{user_slug}?ref=nav_profile_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/comment/list/{user_slug}?ref=nav_profile_comment",
+      "label": "Comments"
+    },
+    {
+      "href": "https://www.goodreads.com/readingchallenges?ref=web_ingress",
+      "label": "Reading Challenge"
+    },
+    {
+      "href": "/notes?ref=nav_profile_knh",
+      "label": "Kindle Notes & Highlights"
+    },
+    {
+      "href": "/quotes/list?ref=nav_profile_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/user/edit_fav_genres?ref=nav_profile_favgenre&return_url=%2Fuser%2Fshow",
+      "label": "Favorite genres"
+    },
+    {
+      "href": "/recommendations/to_me?ref=nav_profile_friendrec",
+      "label": "Friends\u2019 recommendations"
+    },
+    {
+      "href": "/user/edit?ref=nav_profile_settings",
+      "label": "Account settings"
+    },
+    {
+      "href": "/help?action_type=help_nav_bar&ref=nav_profile_help",
+      "label": "Help"
+    },
+    {
+      "href": "/user/sign_out?ref=nav_profile_signout",
+      "label": "Sign out"
+    },
+    {
+      "href": "/?ref=nav_home",
+      "label": "Home"
+    },
+    {
+      "href": "/review/list/{id}?ref=nav_mybooks",
+      "label": "My Books"
+    },
+    {
+      "href": "/book?ref=nav_brws",
+      "label": "Browse \u25be"
+    },
+    {
+      "href": "/recommendations?ref=nav_brws_recs",
+      "label": "Recommendations"
+    },
+    {
+      "href": "/choiceawards?ref=nav_brws_gca",
+      "label": "Choice Awards"
+    },
+    {
+      "href": "/genres?ref=nav_brws_genres",
+      "label": "Genres"
+    },
+    {
+      "href": "/giveaway?ref=nav_brws_giveaways",
+      "label": "Giveaways"
+    },
+    {
+      "href": "/new_releases?ref=nav_brws_newrels",
+      "label": "New Releases"
+    },
+    {
+      "href": "/list?ref=nav_brws_lists",
+      "label": "Lists"
+    },
+    {
+      "href": "/book?ref=nav_brws_explore",
+      "label": "Explore"
+    },
+    {
+      "href": "/news?ref=nav_brws_news",
+      "label": "News & Interviews"
+    },
+    {
+      "href": "/group?ref=nav_comm",
+      "label": "Community \u25be"
+    },
+    {
+      "href": "/group?ref=nav_comm_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/quotes?ref=nav_comm_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/ask_the_author?ref=nav_comm_askauthor",
+      "label": "Ask the Author"
+    },
+    {
+      "href": "/user/best_reviewers?ref=nav_comm_people",
+      "label": "People"
+    },
+    {
+      "href": "https://www.goodreads.com/",
+      "label": "Back to the Goodreads homepage"
+    },
+    {
+      "href": "/about/us",
+      "label": "About us"
+    },
+    {
+      "href": "/jobs",
+      "label": "Careers"
+    },
+    {
+      "href": "/about/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/about/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "https://help.goodreads.com/s/article/Goodreads-Interest-Based-Ads-Notice",
+      "label": "Interest Based Ads"
+    },
+    {
+      "href": "/adprefs",
+      "label": "Ad Preferences"
+    },
+    {
+      "href": "/ccbaprefs",
+      "label": "Your Ads Privacy Choices"
+    },
+    {
+      "href": "/help?action_type=help_web_footer",
+      "label": "Help"
+    },
+    {
+      "href": "/author/program",
+      "label": "Authors"
+    },
+    {
+      "href": "/advertisers",
+      "label": "Advertise"
+    },
+    {
+      "href": "/news?content_type=author_blogs",
+      "label": "Authors & ads blog"
+    },
+    {
+      "href": "/toggle_mobile",
+      "label": "Mobile version"
+    }
+  ],
+  "parser": "goodreads/tools/parse_fixtures.py",
+  "parserVersion": "0.1.0",
+  "redaction": {
+    "longDescriptions": "length-only",
+    "rawHighlights": "omitted",
+    "rawMessages": "omitted",
+    "rawReviews": "omitted"
+  },
+  "sourceFile": "fixtures/private-cdp-2026-05-26/profile.html",
+  "title": "Page not found | Goodreads"
+}

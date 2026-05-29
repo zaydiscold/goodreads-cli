@@ -1,0 +1,59 @@
+{
+  "fixtures": [
+    {
+      "kind": "html_page",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/friends.parsed.json",
+      "recordCount": 125,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/friends.html"
+    },
+    {
+      "kind": "message_page",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/messages-inbox.parsed.json",
+      "recordCount": 3,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/messages-inbox.html"
+    },
+    {
+      "kind": "shelf_html",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/my-books.parsed.json",
+      "recordCount": 30,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/my-books.html"
+    },
+    {
+      "kind": "html_page",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/notes.parsed.json",
+      "recordCount": 102,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/notes.html"
+    },
+    {
+      "kind": "notes_page",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/profile-resolved.parsed.json",
+      "recordCount": 1,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/profile-resolved.html"
+    },
+    {
+      "kind": "html_page",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/profile.parsed.json",
+      "recordCount": 77,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/profile.html"
+    },
+    {
+      "kind": "shelf_html",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/read-shelf.parsed.json",
+      "recordCount": 30,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/read-shelf.html"
+    },
+    {
+      "kind": "html_page",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/recommendations.parsed.json",
+      "recordCount": 172,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/recommendations.html"
+    },
+    {
+      "kind": "shelf_html",
+      "outputFile": "fixtures/parsed-cdp-2026-05-26/to-read-shelf.parsed.json",
+      "recordCount": 30,
+      "sourceFile": "fixtures/private-cdp-2026-05-26/to-read-shelf.html"
+    }
+  ],
+  "generatedAt": "2026-05-26T21:34:36Z"
+}

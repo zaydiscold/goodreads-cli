@@ -1,0 +1,50 @@
+{
+  "detectedKind": "message_page",
+  "formCount": 1,
+  "forms": [
+    {
+      "action": "/message/move_batch?page=1",
+      "inputNames": [
+        "authenticity_token",
+        "folder",
+        "messages[{id}]",
+        "move[folder]",
+        "utf8"
+      ],
+      "method": "post"
+    }
+  ],
+  "generatedAt": "2026-05-26T21:34:35Z",
+  "kind": "message_page",
+  "messageLinkCount": 3,
+  "messageLinks": [
+    {
+      "hasVisibleLabel": false,
+      "href": "/message/show/{id}",
+      "labelLength": 0,
+      "messageId": null
+    },
+    {
+      "hasVisibleLabel": true,
+      "href": "/message/show/{id}",
+      "labelLength": 5,
+      "messageId": null
+    },
+    {
+      "hasVisibleLabel": true,
+      "href": "/message/show/{id}",
+      "labelLength": 66,
+      "messageId": null
+    }
+  ],
+  "parser": "goodreads/tools/parse_fixtures.py",
+  "parserVersion": "0.1.0",
+  "redaction": {
+    "longDescriptions": "length-only",
+    "rawHighlights": "omitted",
+    "rawMessages": "omitted",
+    "rawReviews": "omitted"
+  },
+  "sourceFile": "fixtures/private-cdp-2026-05-26/messages-inbox.html",
+  "title": "my inbox | Goodreads"
+}

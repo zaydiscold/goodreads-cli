@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.*
+fixtures/private/
+fixtures/private-cdp-*/
+fixtures/parsed/
+*.log
+.DS_Store

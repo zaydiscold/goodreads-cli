@@ -1,0 +1,40 @@
+{
+  "name": "@zaydiscold/goodreads-cli",
+  "version": "0.1.0",
+  "description": "Open-access Goodreads API map plus live-capable CLI for shelves, books, notes, exports, and account routes.",
+  "type": "module",
+  "bin": {
+    "goodreads-cli": "dist/index.js"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./lib": "./dist/lib.js",
+    "./live": "./dist/client/live.js",
+    "./risk": "./dist/risk.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-api-map.mjs",
+    "cli": "tsx src/index.ts",
+    "api-map:endpoints": "node scripts/generate-endpoint-markdown.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "commander": "^14.0.3",
+    "fast-xml-parser": "^5.8.0",
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.22.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Zayd Khan (@ColdCooks / zaydiscold)",
+  "license": "MIT"
+}

@@ -1,0 +1,26 @@
+ROUTES:
+GET /
+GET /book/show/:id
+GET /facebook_users/auth_status
+GET /friend
+GET /genres
+GET /giveaway
+GET /group
+GET /group/messages
+GET /list
+GET /notifications
+GET /quotes
+GET /recommendations
+GET /review/list/:id
+GET /sign_in_prompt
+GET /tooltips
+GET /user_challenges
+POST /home/load_more_updates
+POST /logging
+POST /metrics_logging
+POST /notifications/track
+POST /report_metric
+POST /weblab
+
+GRAPHQL:
+[non-json]

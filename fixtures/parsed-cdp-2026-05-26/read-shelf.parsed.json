@@ -1,0 +1,728 @@
+{
+  "currentPage": 1,
+  "declaredBookCount": 40,
+  "detectedKind": "shelf_html",
+  "generatedAt": "2026-05-26T21:34:36Z",
+  "kind": "shelf_html",
+  "pageLinks": [
+    {
+      "class": [],
+      "href": "/review/list/{id}?page=2&shelf=read",
+      "label": "2",
+      "page": 2,
+      "rel": [
+        "next"
+      ]
+    },
+    {
+      "class": [
+        "next_page"
+      ],
+      "href": "/review/list/{id}?page=2&shelf=read",
+      "label": "next \u00bb",
+      "page": 2,
+      "rel": [
+        "next"
+      ]
+    }
+  ],
+  "parser": "goodreads/tools/parse_fixtures.py",
+  "parserVersion": "0.1.0",
+  "redaction": {
+    "longDescriptions": "length-only",
+    "rawHighlights": "omitted",
+    "rawMessages": "omitted",
+    "rawReviews": "omitted"
+  },
+  "rowCount": 30,
+  "rows": [
+    {
+      "author": "Dinniman, Matt",
+      "bookHref": "/book/show/{id}-the-butcher-s-masquerade",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars 5 of 5 stars",
+      "reviewId": "8621697544",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Dinniman, Matt",
+      "bookHref": "/book/show/{id}-the-eye-of-the-bedlam-bride",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8560485249",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Dinniman, Matt",
+      "bookHref": "/book/show/{id}-the-gate-of-the-feral-gods",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars 5 of 5 stars",
+      "reviewId": "8524876057",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Dinniman, Matt",
+      "bookHref": "/book/show/{id}-the-dungeon-anarchist-s-cookbook",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8510348820",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Dinniman, Matt",
+      "bookHref": "/book/show/{id}-carl-s-doomsday-scenario",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8493932820",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-dark-dive",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8463055700",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-sea-castle",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8446534751",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-sea-storm",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8446497879",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-black-coral",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8425246269",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Dinniman, Matt",
+      "bookHref": "/book/show/{id}-dungeon-crawler-carl",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8399319663",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-the-girl-beneath-the-sea",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8220418567",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-imposter-syndrome",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars [ 3 of 5 stars ] 4 of 5 stars 5 of 5 stars",
+      "reviewId": "8192108655",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Masson, Kathryn",
+      "bookHref": "/book/show/{id}-{location}-splendor",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars 5 of 5 stars",
+      "reviewId": "8175495774",
+      "shelfText": "shelves read , for-the-aesthetic [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-the-final-equinox",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars [ 3 of 5 stars ] 4 of 5 stars 5 of 5 stars",
+      "reviewId": "8172919505",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-mastermind",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8164583694",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-mr-whisper",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8164566952",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-dark-pattern",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8139982142",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-murder-theory",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8130257948",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-looking-glass",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8125121459",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Mayne, Andrew",
+      "bookHref": "/book/show/{id}-the-naturalist",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8109676766",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Weir, Andy",
+      "bookHref": "/book/show/{id}-project-hail-mary",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8047342497",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Taylor, Dennis E.",
+      "bookHref": "/book/show/{id}-not-till-we-are-lost",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8047308869",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Taylor, Dennis E.",
+      "bookHref": "/book/show/{id}-heaven-s-river",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "8047308558",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Taylor, Dennis E.",
+      "bookHref": "/book/show/{id}-all-these-worlds",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8047307666",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Taylor, Dennis E.",
+      "bookHref": "/book/show/{id}-for-we-are-many",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8047307559",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Taylor, Dennis E.",
+      "bookHref": "/book/show/{id}-we-are-legion-we-are-bob",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "8047306906",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Le Guin, Ursula K.",
+      "bookHref": "/book/show/{id}.The_Ones_Who_Walk_Away_from_Omelas",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars 4 of 5 stars [ 5 of 5 stars ]",
+      "reviewId": "6665753530",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Miyamoto Musashi",
+      "bookHref": "/book/show/{id}.A_Book_of_Five_Rings",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "6665493913",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    },
+    {
+      "author": "Shelley, Mary",
+      "bookHref": "/book/show/{id}-frankenstein",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "6665491408",
+      "shelfText": "shelves read , want-to-read-again [edit]",
+      "title": ""
+    },
+    {
+      "author": "Vonnegut Jr., Kurt",
+      "bookHref": "/book/show/{id}-harrison-bergeron",
+      "bookId": null,
+      "ratingText": "my rating 1 of 5 stars 2 of 5 stars 3 of 5 stars [ 4 of 5 stars ] 5 of 5 stars",
+      "reviewId": "6665490413",
+      "shelfText": "shelves read [edit]",
+      "title": ""
+    }
+  ],
+  "shelfInventory": [
+    {
+      "count": 28,
+      "displayName": "All",
+      "href": "/review/list/{id}?shelf=%23ALL%23",
+      "isObservedForThisAccount": true,
+      "kind": "account_all_books",
+      "slug": "#ALL#"
+    },
+    {
+      "count": 132,
+      "displayName": "Want to Read",
+      "href": "/review/list/{user_slug}?shelf=to-read",
+      "isObservedForThisAccount": true,
+      "kind": "account_shelf",
+      "slug": "to-read"
+    },
+    {
+      "count": 7,
+      "displayName": "Currently Reading",
+      "href": "/review/list/{user_slug}?shelf=currently-reading",
+      "isObservedForThisAccount": true,
+      "kind": "account_shelf",
+      "slug": "currently-reading"
+    },
+    {
+      "count": 40,
+      "displayName": "Read",
+      "href": "/review/list/{user_slug}?shelf=read",
+      "isObservedForThisAccount": true,
+      "kind": "account_shelf",
+      "slug": "read"
+    },
+    {
+      "count": 6,
+      "displayName": "Did Not Finish",
+      "href": "/review/list/{user_slug}?shelf=did-not-finish",
+      "isObservedForThisAccount": true,
+      "kind": "account_shelf",
+      "slug": "did-not-finish"
+    },
+    {
+      "count": 2,
+      "displayName": "for-the-aesthetic",
+      "href": "/review/list/{user_slug}?shelf=for-the-aesthetic",
+      "isObservedForThisAccount": true,
+      "kind": "account_shelf",
+      "slug": "for-the-aesthetic"
+    },
+    {
+      "count": 2,
+      "displayName": "want-to-read-again",
+      "href": "/review/list/{user_slug}?shelf=want-to-read-again",
+      "isObservedForThisAccount": true,
+      "kind": "account_shelf",
+      "slug": "want-to-read-again"
+    }
+  ],
+  "shelfLinkCount": 73,
+  "shelfLinks": [
+    {
+      "href": "/review/list/{id}?page=1&shelf=read",
+      "label": "My Books"
+    },
+    {
+      "href": "/review/list/{id}?print=true&shelf=read",
+      "label": "Print"
+    },
+    {
+      "href": "/review/list/{id}?shelf=%23ALL%23",
+      "label": "All (28)"
+    },
+    {
+      "href": "/review/list/{user_slug}?page=1&shelf=read%2Cto-read",
+      "label": "+"
+    },
+    {
+      "href": "/review/list/{user_slug}?shelf=to-read",
+      "label": "Want to Read \u200e(132)"
+    },
+    {
+      "href": "/review/list/{user_slug}?page=1&shelf=read%2Ccurrently-reading",
+      "label": "+"
+    },
+    {
+      "href": "/review/list/{user_slug}?shelf=currently-reading",
+      "label": "Currently Reading \u200e(7)"
+    },
+    {
+      "href": "/review/list/{user_slug}?shelf=",
+      "label": "\u2212"
+    },
+    {
+      "href": "/review/list/{user_slug}?shelf=read",
+      "label": "Read \u200e(40)"
+    },
+    {
+      "href": "/review/list/{user_slug}?page=1&shelf=read%2Cdid-not-finish",
+      "label": "+"
+    },
+    {
+      "href": "/review/list/{user_slug}?shelf=did-not-finish",
+      "label": "Did Not Finish \u200e(6)"
+    },
+    {
+      "href": "/review/list/{user_slug}?page=1&shelf=read%2Cfor-the-aesthetic",
+      "label": "+"
+    },
+    {
+      "href": "/review/list/{user_slug}?shelf=for-the-aesthetic",
+      "label": "for-the-aesthetic \u200e(2)"
+    },
+    {
+      "href": "/review/list/{user_slug}?page=1&shelf=read%2Cwant-to-read-again",
+      "label": "+"
+    },
+    {
+      "href": "/review/list/{user_slug}?shelf=want-to-read-again",
+      "label": "want-to-read-again \u200e(2)"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=position",
+      "label": "#"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=cover",
+      "label": "cover"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=title",
+      "label": "title"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=author",
+      "label": "author"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=isbn",
+      "label": "isbn"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=isbn13",
+      "label": "isbn13"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=asin",
+      "label": "asin"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=num_pages",
+      "label": "num pages"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=avg_rating",
+      "label": "avg rating"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=num_ratings",
+      "label": "num ratings"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=date_pub",
+      "label": "date pub"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=date_pub_edition",
+      "label": "date pub (ed.)"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=rating",
+      "label": "rating"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=review",
+      "label": "review"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=notes",
+      "label": "notes"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=comments",
+      "label": "comments"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=votes",
+      "label": "votes"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=read_count",
+      "label": "read count"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=date_started",
+      "label": "date started"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=date_read",
+      "label": "date read"
+    },
+    {
+      "href": "/review/list/{id}?order=a&shelf=read&sort=date_added",
+      "label": "date"
+    },
+    {
+      "href": "/review/list/{id}?order=a&shelf=read&sort=date_added",
+      "label": "added"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=owned",
+      "label": "owned"
+    },
+    {
+      "href": "/review/list/{id}?shelf=read&sort=format",
+      "label": "format"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=for-the-aesthetic",
+      "label": "for-the-aesthetic"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=want-to-read-again",
+      "label": "want-to-read-again"
+    },
+    {
+      "href": "https://www.goodreads.com/review/list/{id}?shelf=read",
+      "label": "read"
+    },
+    {
+      "href": "/review/list/{id}?page=2&shelf=read",
+      "label": "2"
+    },
+    {
+      "href": "/review/list/{id}?page=2&shelf=read",
+      "label": "next \u00bb"
+    }
+  ],
+  "sourceFile": "fixtures/private-cdp-2026-05-26/read-shelf.html",
+  "title": "{user}\u2019s 'read' books on Goodreads (40 books)",
+  "writeFormCount": 3,
+  "writeForms": [
+    {
+      "action": "/user_shelves",
+      "inputNames": [
+        "commit",
+        "user_shelf[name]",
+        "utf8"
+      ],
+      "method": "post"
+    },
+    {
+      "action": "/shelf/update/{id}",
+      "inputNames": [
+        "_method",
+        "commit",
+        "shelf[display_fields][actions]",
+        "shelf[display_fields][asin]",
+        "shelf[display_fields][author]",
+        "shelf[display_fields][avg_rating]",
+        "shelf[display_fields][comments]",
+        "shelf[display_fields][condition]",
+        "shelf[display_fields][cover]",
+        "shelf[display_fields][date_added]",
+        "shelf[display_fields][date_pub]",
+        "shelf[display_fields][date_pub_edition]",
+        "shelf[display_fields][date_purchased]",
+        "shelf[display_fields][date_read]",
+        "shelf[display_fields][date_started]",
+        "shelf[display_fields][format]",
+        "shelf[display_fields][isbn13]",
+        "shelf[display_fields][isbn]",
+        "shelf[display_fields][notes]",
+        "shelf[display_fields][num_pages]",
+        "shelf[display_fields][num_ratings]",
+        "shelf[display_fields][owned]",
+        "shelf[display_fields][position]",
+        "shelf[display_fields][purchase_location]",
+        "shelf[display_fields][rating]",
+        "shelf[display_fields][read_count]",
+        "shelf[display_fields][recommender]",
+        "shelf[display_fields][review]",
+        "shelf[display_fields][shelves]",
+        "shelf[display_fields][title]",
+        "shelf[display_fields][votes]",
+        "user_shelf[order]",
+        "user_shelf[per_page]",
+        "user_shelf[sort]",
+        "utf8"
+      ],
+      "method": "post"
+    },
+    {
+      "action": "/review/update_list/{id}",
+      "inputNames": [
+        "authenticity_token",
+        "edit[shelf]",
+        "utf8",
+        "view"
+      ],
+      "method": "post"
+    }
+  ]
+}

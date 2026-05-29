@@ -1,0 +1,27 @@
+{
+  "detectedKind": "notes_page",
+  "generatedAt": "2026-05-26T21:34:36Z",
+  "kind": "notes_page",
+  "noteCount": 1,
+  "notes": [
+    {
+      "annotationPairId": null,
+      "hasSpoilerToggle": false,
+      "notePersistEndpoint": null,
+      "visible": "true"
+    }
+  ],
+  "parser": "goodreads/tools/parse_fixtures.py",
+  "parserVersion": "0.1.0",
+  "redaction": {
+    "longDescriptions": "length-only",
+    "rawHighlights": "omitted",
+    "rawMessages": "omitted",
+    "rawReviews": "omitted"
+  },
+  "sourceFile": "fixtures/private-cdp-2026-05-26/profile-resolved.html",
+  "title": "{user} ({user_slug}) - {location} (28 books) | Goodreads",
+  "visibleCounts": {
+    "true": 1
+  }
+}

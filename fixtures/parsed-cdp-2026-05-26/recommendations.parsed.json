@@ -1,0 +1,709 @@
+{
+  "detectedKind": "html_page",
+  "generatedAt": "2026-05-26T21:34:36Z",
+  "h1": [
+    "Recommendations"
+  ],
+  "kind": "html_page",
+  "linkCount": 172,
+  "links": [
+    {
+      "href": "/?ref=nav_home",
+      "label": "Home"
+    },
+    {
+      "href": "/review/list/{id}?ref=nav_mybooks",
+      "label": "My Books"
+    },
+    {
+      "href": "/book?ref=nav_brws",
+      "label": "Browse \u25be"
+    },
+    {
+      "href": "/recommendations?ref=nav_brws_recs",
+      "label": "Recommendations"
+    },
+    {
+      "href": "/choiceawards?ref=nav_brws_gca",
+      "label": "Choice Awards"
+    },
+    {
+      "href": "/genres?ref=nav_brws_genres",
+      "label": "Genres"
+    },
+    {
+      "href": "/giveaway?ref=nav_brws_giveaways",
+      "label": "Giveaways"
+    },
+    {
+      "href": "/new_releases?ref=nav_brws_newrels",
+      "label": "New Releases"
+    },
+    {
+      "href": "/list?ref=nav_brws_lists",
+      "label": "Lists"
+    },
+    {
+      "href": "/book?ref=nav_brws_explore",
+      "label": "Explore"
+    },
+    {
+      "href": "/news?ref=nav_brws_news",
+      "label": "News & Interviews"
+    },
+    {
+      "href": "/group?ref=nav_comm",
+      "label": "Community \u25be"
+    },
+    {
+      "href": "/group?ref=nav_comm_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/quotes?ref=nav_comm_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/ask_the_author?ref=nav_comm_askauthor",
+      "label": "Ask the Author"
+    },
+    {
+      "href": "/user/best_reviewers?ref=nav_comm_people",
+      "label": "People"
+    },
+    {
+      "href": "/message/inbox?ref=nav_my_messages",
+      "label": "1"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "Profile"
+    },
+    {
+      "href": "/friend?ref=nav_profile_friends",
+      "label": "Friends"
+    },
+    {
+      "href": "/group/list/{user_slug}?ref=nav_profile_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/comment/list/{user_slug}?ref=nav_profile_comment",
+      "label": "Comments"
+    },
+    {
+      "href": "https://www.goodreads.com/readingchallenges?ref=web_ingress",
+      "label": "Reading Challenge"
+    },
+    {
+      "href": "/notes?ref=nav_profile_knh",
+      "label": "Kindle Notes & Highlights"
+    },
+    {
+      "href": "/quotes/list?ref=nav_profile_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/user/edit_fav_genres?ref=nav_profile_favgenre&return_url=%2Frecommendations",
+      "label": "Favorite genres"
+    },
+    {
+      "href": "/recommendations/to_me?ref=nav_profile_friendrec",
+      "label": "Friends\u2019 recommendations"
+    },
+    {
+      "href": "/user/edit?ref=nav_profile_settings",
+      "label": "Account settings"
+    },
+    {
+      "href": "/help?action_type=help_nav_bar&ref=nav_profile_help",
+      "label": "Help"
+    },
+    {
+      "href": "/user/sign_out?ref=nav_profile_signout",
+      "label": "Sign out"
+    },
+    {
+      "href": "/message/inbox?ref=nav_my_messages",
+      "label": "1"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "{user}"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "View profile"
+    },
+    {
+      "href": "/user/show/{user_slug}",
+      "label": "Profile"
+    },
+    {
+      "href": "/friend?ref=nav_profile_friends",
+      "label": "Friends"
+    },
+    {
+      "href": "/group/list/{user_slug}?ref=nav_profile_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/comment/list/{user_slug}?ref=nav_profile_comment",
+      "label": "Comments"
+    },
+    {
+      "href": "https://www.goodreads.com/readingchallenges?ref=web_ingress",
+      "label": "Reading Challenge"
+    },
+    {
+      "href": "/notes?ref=nav_profile_knh",
+      "label": "Kindle Notes & Highlights"
+    },
+    {
+      "href": "/quotes/list?ref=nav_profile_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/user/edit_fav_genres?ref=nav_profile_favgenre&return_url=%2Frecommendations",
+      "label": "Favorite genres"
+    },
+    {
+      "href": "/recommendations/to_me?ref=nav_profile_friendrec",
+      "label": "Friends\u2019 recommendations"
+    },
+    {
+      "href": "/user/edit?ref=nav_profile_settings",
+      "label": "Account settings"
+    },
+    {
+      "href": "/help?action_type=help_nav_bar&ref=nav_profile_help",
+      "label": "Help"
+    },
+    {
+      "href": "/user/sign_out?ref=nav_profile_signout",
+      "label": "Sign out"
+    },
+    {
+      "href": "/?ref=nav_home",
+      "label": "Home"
+    },
+    {
+      "href": "/review/list/{id}?ref=nav_mybooks",
+      "label": "My Books"
+    },
+    {
+      "href": "/book?ref=nav_brws",
+      "label": "Browse \u25be"
+    },
+    {
+      "href": "/recommendations?ref=nav_brws_recs",
+      "label": "Recommendations"
+    },
+    {
+      "href": "/choiceawards?ref=nav_brws_gca",
+      "label": "Choice Awards"
+    },
+    {
+      "href": "/genres?ref=nav_brws_genres",
+      "label": "Genres"
+    },
+    {
+      "href": "/giveaway?ref=nav_brws_giveaways",
+      "label": "Giveaways"
+    },
+    {
+      "href": "/new_releases?ref=nav_brws_newrels",
+      "label": "New Releases"
+    },
+    {
+      "href": "/list?ref=nav_brws_lists",
+      "label": "Lists"
+    },
+    {
+      "href": "/book?ref=nav_brws_explore",
+      "label": "Explore"
+    },
+    {
+      "href": "/news?ref=nav_brws_news",
+      "label": "News & Interviews"
+    },
+    {
+      "href": "/group?ref=nav_comm",
+      "label": "Community \u25be"
+    },
+    {
+      "href": "/group?ref=nav_comm_groups",
+      "label": "Groups"
+    },
+    {
+      "href": "/topic?ref=nav_comm_discuss",
+      "label": "Discussions"
+    },
+    {
+      "href": "/quotes?ref=nav_comm_quotes",
+      "label": "Quotes"
+    },
+    {
+      "href": "/ask_the_author?ref=nav_comm_askauthor",
+      "label": "Ask the Author"
+    },
+    {
+      "href": "/user/best_reviewers?ref=nav_comm_people",
+      "label": "People"
+    },
+    {
+      "href": "#",
+      "label": "How to improve your recommendations\u2026"
+    },
+    {
+      "href": "/recommendations?recs_current_view=list",
+      "label": "list"
+    },
+    {
+      "href": "/recommendations/shelf/to-read",
+      "label": "Based on Your To Read Shelf"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "/recommendations/shelf/to-read",
+      "label": "More for this shelf \u00bb"
+    },
+    {
+      "href": "/recommendations/shelf/read",
+      "label": "Based on Your Read Shelf"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "/recommendations/shelf/read",
+      "label": "More for this shelf \u00bb"
+    },
+    {
+      "href": "/recommendations/shelf/for-the-aesthetic",
+      "label": "Based on Your For The Aesthetic Shelf"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "/recommendations/shelf/for-the-aesthetic",
+      "label": "More for this shelf \u00bb"
+    },
+    {
+      "href": "/recommendations/shelf/want-to-read-again",
+      "label": "Based on Your Want To Read Again Shelf"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "/recommendations/shelf/want-to-read-again",
+      "label": "More for this shelf \u00bb"
+    },
+    {
+      "href": "/recommendations/shelf/did-not-finish",
+      "label": "Based on Your Did Not Finish Shelf"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "#",
+      "label": "Want to Read"
+    },
+    {
+      "href": "#",
+      "label": "Not interested"
+    },
+    {
+      "href": "/recommendations/shelf/did-not-finish",
+      "label": "More for this shelf \u00bb"
+    },
+    {
+      "href": "#",
+      "label": "?"
+    },
+    {
+      "href": "/recommendations",
+      "label": "overview"
+    },
+    {
+      "href": "/recommendations/shelf/did-not-finish",
+      "label": "did-not-finish 50"
+    },
+    {
+      "href": "/recommendations/shelf/for-the-aesthetic",
+      "label": "for-the-aesthetic 32"
+    },
+    {
+      "href": "/recommendations/shelf/read",
+      "label": "read 50"
+    },
+    {
+      "href": "/recommendations/shelf/to-read",
+      "label": "to-read 50"
+    },
+    {
+      "href": "/recommendations/shelf/want-to-read-again",
+      "label": "want-to-read-again 50"
+    },
+    {
+      "href": "#",
+      "label": "?"
+    },
+    {
+      "href": "/recommendations/genre/art",
+      "label": "Art 50"
+    },
+    {
+      "href": "/recommendations/genre/business",
+      "label": "Business 50"
+    },
+    {
+      "href": "/recommendations/genre/crime",
+      "label": "Crime 50"
+    },
+    {
+      "href": "/recommendations/genre/fantasy",
+      "label": "Fantasy 50"
+    },
+    {
+      "href": "/recommendations/genre/fiction",
+      "label": "Fiction 50"
+    },
+    {
+      "href": "/recommendations/genre/historical-fiction",
+      "label": "Historical Fiction 50"
+    },
+    {
+      "href": "/recommendations/genre/history",
+      "label": "History 50"
+    },
+    {
+      "href": "/recommendations/genre/horror",
+      "label": "Horror 50"
+    },
+    {
+      "href": "/recommendations/genre/mystery",
+      "label": "Mystery 50"
+    },
+    {
+      "href": "/recommendations/genre/non-fiction",
+      "label": "Nonfiction 50"
+    },
+    {
+      "href": "/recommendations/genre/paranormal",
+      "label": "Paranormal 10"
+    },
+    {
+      "href": "/recommendations/genre/philosophy",
+      "label": "Philosophy 50"
+    },
+    {
+      "href": "/recommendations/genre/poetry",
+      "label": "Poetry 50"
+    },
+    {
+      "href": "/recommendations/genre/psychology",
+      "label": "Psychology 50"
+    },
+    {
+      "href": "/recommendations/genre/science",
+      "label": "Science 50"
+    },
+    {
+      "href": "/recommendations/genre/science-fiction",
+      "label": "Science Fiction 50"
+    },
+    {
+      "href": "/recommendations/genre/self-help",
+      "label": "Self Help 50"
+    },
+    {
+      "href": "/recommendations/genre/suspense",
+      "label": "Suspense 50"
+    },
+    {
+      "href": "/recommendations/genre/thriller",
+      "label": "Thriller 50"
+    },
+    {
+      "href": "/recommendations/genre/travel",
+      "label": "Travel 50"
+    },
+    {
+      "href": "/recommendations/to_me",
+      "label": "Recommendations from Members"
+    },
+    {
+      "href": "/recommendations/new",
+      "label": "Give Recommendations"
+    },
+    {
+      "href": "/recommendation_requests/new",
+      "label": "Ask for Recommendations"
+    },
+    {
+      "href": "/user_not_interested_works",
+      "label": "Books Marked as 'Not Interested'"
+    },
+    {
+      "href": "/amazon_purchases?source=r",
+      "label": "New! Add Your Amazon Books"
+    },
+    {
+      "href": "/amazon_purchases?source=r",
+      "label": "Get Started"
+    },
+    {
+      "href": "/about/us",
+      "label": "About us"
+    },
+    {
+      "href": "/jobs",
+      "label": "Careers"
+    },
+    {
+      "href": "/about/terms",
+      "label": "Terms"
+    },
+    {
+      "href": "/about/privacy",
+      "label": "Privacy"
+    },
+    {
+      "href": "https://help.goodreads.com/s/article/Goodreads-Interest-Based-Ads-Notice",
+      "label": "Interest Based Ads"
+    },
+    {
+      "href": "/adprefs",
+      "label": "Ad Preferences"
+    },
+    {
+      "href": "/ccbaprefs",
+      "label": "Your Ads Privacy Choices"
+    },
+    {
+      "href": "/help?action_type=help_web_footer",
+      "label": "Help"
+    },
+    {
+      "href": "/author/program",
+      "label": "Authors"
+    },
+    {
+      "href": "/advertisers",
+      "label": "Advertise"
+    },
+    {
+      "href": "/news?content_type=author_blogs",
+      "label": "Authors & ads blog"
+    },
+    {
+      "href": "/toggle_mobile",
+      "label": "Mobile version"
+    }
+  ],
+  "parser": "goodreads/tools/parse_fixtures.py",
+  "parserVersion": "0.1.0",
+  "redaction": {
+    "longDescriptions": "length-only",
+    "rawHighlights": "omitted",
+    "rawMessages": "omitted",
+    "rawReviews": "omitted"
+  },
+  "sourceFile": "fixtures/private-cdp-2026-05-26/recommendations.html",
+  "title": "Recommended for You | Goodreads"
+}

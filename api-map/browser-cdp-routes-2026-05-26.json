@@ -1,0 +1,260 @@
+[
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/facebook_users/auth_status",
+    "query_keys": [],
+    "resource_type": "XHR",
+    "initiator_type": "script",
+    "status": 404,
+    "mime_type": "text/html",
+    "observed_count": 1,
+    "statuses": [
+      404
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/friend",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "POST",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/home/load_more_updates",
+    "query_keys": [],
+    "resource_type": "XHR",
+    "initiator_type": "script",
+    "status": 200,
+    "mime_type": "application/json",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/message/inbox",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/notes/{id}/load_more",
+    "query_keys": [],
+    "resource_type": "XHR",
+    "initiator_type": "script",
+    "status": 200,
+    "mime_type": "application/json",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/notes/{user_slug}",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/recommendations",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/review/list/{id}",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/review/list/{id}",
+    "query_keys": [
+      "shelf"
+    ],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 2,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/sign_in_prompt",
+    "query_keys": [
+      "countOverride"
+    ],
+    "resource_type": "XHR",
+    "initiator_type": "script",
+    "status": 204,
+    "mime_type": "text/plain",
+    "observed_count": 1,
+    "statuses": [
+      204
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/tooltips",
+    "query_keys": [
+      "resources[Book.{id}][id]",
+      "resources[Book.{id}][type]",
+      "use_wtr_tooltip"
+    ],
+    "resource_type": "XHR",
+    "initiator_type": "script",
+    "status": 200,
+    "mime_type": "application/json",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/user/delayable_user_show/{id}",
+    "query_keys": [
+      "amp;skip_cache",
+      "csm_scope"
+    ],
+    "resource_type": "XHR",
+    "initiator_type": "script",
+    "status": 200,
+    "mime_type": "text/html",
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/user/show",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 404,
+    "mime_type": "text/html",
+    "from_disk_cache": false,
+    "from_service_worker": false,
+    "observed_count": 1,
+    "statuses": [
+      404
+    ]
+  },
+  {
+    "method": "GET",
+    "scheme": "https",
+    "host": "www.goodreads.com",
+    "path_template": "/user/show/{user_slug}",
+    "query_keys": [],
+    "resource_type": "Document",
+    "initiator_type": "other",
+    "status": 200,
+    "mime_type": "text/html",
+    "observed_count": 1,
+    "statuses": [
+      200
+    ]
+  }
+]

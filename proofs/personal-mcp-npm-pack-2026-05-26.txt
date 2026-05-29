@@ -1,0 +1,20 @@
+npm warn Unknown env config "manage-package-manager-versions". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm notice
+npm notice 📦  @zaydiscold/goodreads-mcp@0.1.0
+npm notice Tarball Contents
+npm notice 611B README.md
+npm notice 31B dist/server.d.ts
+npm notice 6.9kB dist/server.js
+npm notice 677B package.json
+npm notice Tarball Details
+npm notice name: @zaydiscold/goodreads-mcp
+npm notice version: 0.1.0
+npm notice filename: zaydiscold-goodreads-mcp-0.1.0.tgz
+npm notice package size: 2.9 kB
+npm notice unpacked size: 8.2 kB
+npm notice shasum: 1e3d62492b756f401ca62ae82fef9dc447f2d7f4
+npm notice integrity: sha512-61+XhRUf/nrIR[...]fuHMqx9UZekQw==
+npm notice total files: 4
+npm notice
+zaydiscold-goodreads-mcp-0.1.0.tgz

@@ -1,0 +1,25 @@
+{
+  "source": "goodreads-web",
+  "generatedAt": "2026-05-27T02:39:35.496Z",
+  "confidence": "high",
+  "warnings": [],
+  "data": {
+    "execute": false,
+    "dryRun": true,
+    "routeId": "put_notes-book-id-share",
+    "method": "PUT",
+    "path": "/notes/{book_id}/share",
+    "url": "https://www.goodreads.com/notes/48526390/share",
+    "mutatesAccount": true,
+    "requiresCookie": true,
+    "requiresCsrf": true,
+    "auth": {
+      "cookieEnv": "GOODREADS_COOKIE",
+      "csrfEnv": "GOODREADS_CSRF_TOKEN",
+      "cookiePresent": false,
+      "csrfPresent": false
+    },
+    "bodyMode": "none",
+    "riskLevel": "write-mutate"
+  }
+}
