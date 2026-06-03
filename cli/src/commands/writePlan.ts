@@ -10,7 +10,7 @@ export function writePlanCommand(): Command {
     .description("Plan a book/review shelf move without submitting it.")
     .requiredOption("--review-id <id>", "Goodreads review id from a shelf row.")
     .requiredOption("--to-shelf <slug>", "Discovered target shelf slug.")
-    .option("--user <id>", "Goodreads numeric user id.", "179929687")
+    .requiredOption("--user <id>", "Goodreads numeric user id from the current account/page.")
     .action((options: { reviewId: string; toShelf: string; user: string }) => {
       printJson(envelope(planBookshelfMove(options)));
     });
@@ -20,8 +20,9 @@ export function writePlanCommand(): Command {
     .command("publicize")
     .description("Plan publicizing all notes for a book.")
     .requiredOption("--book-id <id>", "Goodreads book id.")
+    .option("--book-slug <slug>", "Goodreads notes detail book slug for reload verification.")
     .option("--user-slug <slug>", "Goodreads user slug for reload verification.")
-    .action((options: { bookId: string; userSlug?: string }) => {
+    .action((options: { bookId: string; bookSlug?: string; userSlug?: string }) => {
       printJson(envelope(planNotesPublicize(options)));
     });
 

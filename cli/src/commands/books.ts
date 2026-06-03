@@ -93,7 +93,7 @@ export function booksCommand(): Command {
     .requiredOption("--shelf <slug>", "Shelf slug, discovered with shelves discover.")
     .option("--fixture-dir <dir>", "Directory containing shelf HTML fixtures.")
     .option("--source <source>", "html or rss.", "html")
-    .option("--user <user>", "Goodreads numeric id or slug.", "179929687")
+    .option("--user <user>", "Goodreads numeric id or slug. Required for RSS/live fetches.")
     .option("--base-url <url>", "Goodreads base URL.", "https://www.goodreads.com")
     .option("--json", "Emit JSON.", true)
     .action(async (options: BooksListOptions) => {
@@ -104,7 +104,8 @@ export function booksCommand(): Command {
         return;
       }
 
-      const rss = await listFromRss(shelf, options.user ?? "179929687", options.baseUrl ?? "https://www.goodreads.com");
+      if (!options.user) throw new Error("--user is required when listing books without --fixture-dir");
+      const rss = await listFromRss(shelf, options.user, options.baseUrl ?? "https://www.goodreads.com");
       const warnings = rss.signals.rssMayCapAt100 ? ["RSS returned exactly 100 items; this may be capped."] : [];
       printJson(envelope({ shelf, rss }, { warnings, confidence: rss.signals.rssMayCapAt100 ? "medium" : "high" }));
     });
@@ -112,11 +113,12 @@ export function booksCommand(): Command {
   command
     .command("export")
     .description("Export one or more shelves from fixture-backed authenticated HTML.")
-    .option("--fixture-dir <dir>", "Directory containing shelf HTML fixtures.", "fixtures/private")
+    .requiredOption("--fixture-dir <dir>", "Directory containing shelf HTML fixtures.")
     .option("--shelves <csv>", "Comma-separated shelf slugs. Defaults to discovered shelf fixture files.")
     .option("--json", "Emit JSON.", true)
     .action(async (options: BooksExportOptions) => {
-      const dir = options.fixtureDir ?? "fixtures/private";
+      const dir = options.fixtureDir;
+      if (!dir) throw new Error("--fixture-dir is required for books export");
       let shelves = parseCsv(options.shelves);
       if (shelves.length === 0) {
         const files = await readdir(dir);

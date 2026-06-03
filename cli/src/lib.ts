@@ -264,8 +264,8 @@ export function searchApiRoutes(routes: GoodreadsRoute[], query: string, limit =
     .map((entry) => entry.route);
 }
 
-export function planBookshelfMove(options: { reviewId: string; toShelf: string; user?: string }) {
-  const user = options.user ?? "179929687";
+export function planBookshelfMove(options: { reviewId: string; toShelf: string; user: string }) {
+  const user = options.user;
   return {
     dryRun: true,
     mutatesAccount: true,
@@ -282,14 +282,19 @@ export function planBookshelfMove(options: { reviewId: string; toShelf: string; 
   };
 }
 
-export function planNotesPublicize(options: { bookId: string; userSlug?: string }) {
+export function notesVerifyRoute(options: { bookSlug?: string; userSlug?: string }): string {
+  return `/notes/${options.bookSlug ?? "<book-slug>"}/${options.userSlug ?? "<user-slug>"}`;
+}
+
+export function planNotesPublicize(options: { bookId: string; bookSlug?: string; userSlug?: string }) {
   return {
     dryRun: true,
     mutatesAccount: true,
     method: "PUT",
     route: `/notes/${options.bookId}/share`,
+    verifyRouteTemplate: "/notes/{book_slug}/{user_slug}",
     approvedWriteProof: "Only approved for pasted pages from the 2026-05-22 run.",
-    verify: `/notes/${options.bookId}/${options.userSlug ?? "<user-slug>"}`,
+    verify: notesVerifyRoute({ bookSlug: options.bookSlug, userSlug: options.userSlug }),
     warning: "Reload the notes page and verify .js-readingNote[data-visible=true] before claiming success."
   };
 }

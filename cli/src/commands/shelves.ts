@@ -17,10 +17,13 @@ export function shelvesCommand(): Command {
     .command("discover")
     .description("Discover shelf slugs and counts from a Goodreads shelf page.")
     .option("--fixture <path>", "Parse a local shelf HTML fixture instead of fetching.")
-    .option("--user <user>", "Goodreads numeric id or slug.", "179929687")
+    .option("--user <user>", "Goodreads numeric id or slug. Required unless --fixture is supplied.")
     .option("--base-url <url>", "Goodreads base URL.", "https://www.goodreads.com")
     .option("--json", "Emit JSON.", true)
     .action(async (options: ShelvesOptions) => {
+      if (!options.fixture && !options.user) {
+        throw new Error("--user is required unless --fixture is supplied");
+      }
       const html = options.fixture
         ? await readText(options.fixture)
         : await fetchText(goodreadsUrl(`/review/list/${options.user}`, options.baseUrl));

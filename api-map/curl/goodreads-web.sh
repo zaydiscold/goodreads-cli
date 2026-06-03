@@ -11,8 +11,8 @@ set -euo pipefail
 
 BASE_URL="${GOODREADS_BASE_URL:-https://www.goodreads.com}"
 COOKIE_FILE="${GOODREADS_COOKIE_FILE:-}"
-USER_ID="${GOODREADS_USER_ID:-179929687}"
-USER_SLUG="${GOODREADS_USER_SLUG:-179929687-zayd-khan}"
+USER_ID="${GOODREADS_USER_ID:-}"
+USER_SLUG="${GOODREADS_USER_SLUG:-}"
 
 curl_args=(
   --silent
@@ -25,6 +25,20 @@ curl_args=(
 if [[ -n "$COOKIE_FILE" ]]; then
   curl_args+=(--cookie "$COOKIE_FILE" --cookie-jar "$COOKIE_FILE")
 fi
+
+require_user_id() {
+  if [[ -z "$USER_ID" ]]; then
+    printf 'GOODREADS_USER_ID is required for route %s\n' "$route" >&2
+    exit 2
+  fi
+}
+
+require_user_slug() {
+  if [[ -z "$USER_SLUG" ]]; then
+    printf 'GOODREADS_USER_SLUG is required for route %s\n' "$route" >&2
+    exit 2
+  fi
+}
 
 route="${1:-help}"
 
@@ -60,34 +74,43 @@ case "$route" in
     curl "${curl_args[@]}" "$BASE_URL/work/quotes/$work_id"
     ;;
   profile)
+    require_user_slug
     curl "${curl_args[@]}" "$BASE_URL/user/show/$USER_SLUG"
     ;;
   profile-delayable)
+    require_user_id
     curl "${curl_args[@]}" "$BASE_URL/user/delayable_user_show/$USER_ID"
     ;;
   shelves-all)
+    require_user_id
     curl "${curl_args[@]}" "$BASE_URL/review/list/$USER_ID"
     ;;
   my-books)
     curl "${curl_args[@]}" "$BASE_URL/review/list?ref=nav_mybooks"
     ;;
   shelves-read)
+    require_user_slug
     curl "${curl_args[@]}" "$BASE_URL/review/list/$USER_SLUG?shelf=read"
     ;;
   shelves-currently-reading)
+    require_user_slug
     curl "${curl_args[@]}" "$BASE_URL/review/list/$USER_SLUG?shelf=currently-reading"
     ;;
   shelves-to-read)
+    require_user_slug
     curl "${curl_args[@]}" "$BASE_URL/review/list/$USER_SLUG?shelf=to-read"
     ;;
   shelf-rss)
+    require_user_id
     shelf="${2:-read}"
     curl "${curl_args[@]}" "$BASE_URL/review/list_rss/$USER_ID?shelf=$shelf"
     ;;
   notes-index)
+    require_user_slug
     curl "${curl_args[@]}" "$BASE_URL/notes/$USER_SLUG?ref=us_w"
     ;;
   notes-load-more)
+    require_user_id
     curl "${curl_args[@]}" "$BASE_URL/notes/$USER_ID/load_more"
     ;;
   quotes)
@@ -101,6 +124,7 @@ case "$route" in
     curl "${curl_args[@]}" "$BASE_URL/quotes/$quote_slug"
     ;;
   comments)
+    require_user_slug
     curl "${curl_args[@]}" "$BASE_URL/comment/list/$USER_SLUG?ref=nav_profile_comment"
     ;;
   notifications)
@@ -128,6 +152,7 @@ case "$route" in
     curl "${curl_args[@]}" "$BASE_URL/message/show/$message_id"
     ;;
   year-in-books)
+    require_user_id
     year="${2:-2025}"
     curl "${curl_args[@]}" "$BASE_URL/user/year_in_books/$year/$USER_ID"
     ;;
@@ -231,6 +256,7 @@ case "$route" in
     printf 'DRY RUN: would PUT %s/notes/%s/share\n' "$BASE_URL" "$book_id"
     ;;
   shelf-move-dry-run)
+    require_user_id
     review_id="${2:?review id required}"
     shelf="${3:?target shelf required}"
     printf 'DRY RUN: would POST %s/review/update_list/%s\n' "$BASE_URL" "$USER_ID"

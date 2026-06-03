@@ -8,18 +8,18 @@ The route map is not enough for Goodreads because most useful surfaces are HTML-
 
 ## Privacy Boundary
 
-Raw fixtures live under:
+Raw private fixtures should live under a local-only fixture directory such as:
 
 ```text
-goodreads/fixtures/private/
+<private-fixtures>/
 ```
 
 That directory is ignored by `.gitignore` and should stay local. Files should be mode `0600`.
 
-Normalized parser output lives under:
+Normalized parser output should live under a paired parsed directory such as:
 
 ```text
-goodreads/fixtures/parsed/
+<parsed-fixtures>/
 ```
 
 This directory is also ignored. The output is redacted, but it can still contain account-visible book/shelf metadata. Shareable test fixtures should be synthetic or manually scrubbed into a separate directory later.
@@ -36,8 +36,8 @@ The parser redacts or avoids:
 
 ```bash
 python3 goodreads/tools/parse_fixtures.py \
-  goodreads/fixtures/private/*.html \
-  goodreads/fixtures/private/*.xml
+  <private-fixtures>/*.html \
+  <private-fixtures>/*.xml
 ```
 
 Current fixture kinds:

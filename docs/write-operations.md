@@ -1,6 +1,6 @@
 # Write Operations
 
-The personal Goodreads CLI is live read/write capable. It is not PP-side software and does not use an env write gate such as `GOODREADS_ALLOW_WRITES`.
+The personal Goodreads CLI is live read/write capable. It is not PP-side software. The low-level `request execute` command does not use a generic env write gate such as `GOODREADS_ALLOW_WRITES`, but higher-level workflow commands may add stricter gates.
 
 ## Runtime Contract
 
@@ -9,6 +9,8 @@ The personal Goodreads CLI is live read/write capable. It is not PP-side softwar
 - Mutating routes print `[WRITES TO LIVE GOODREADS]` to stderr before execution.
 - Authenticated writes require caller-owned `GOODREADS_COOKIE`.
 - Rails-form writes require `GOODREADS_CSRF_TOKEN` or a current form `authenticity_token`.
+- `goodreads-cli notes publicize` and `goodreads-cli recent-reading publicize` require `--execute`, an exact `--approved-book-id`, and `GOODREADS_ALLOW_NOTES_PUBLICIZE=1`.
+- Notes publicize writes use numeric `book_id`; reload verification uses `/notes/{book_slug}/{user_slug}` from the notes link.
 
 ## Risk Levels
 
@@ -26,6 +28,9 @@ goodreads-cli request plan --route "PUT /notes/{book_id}/share" --param book_id=
 goodreads-cli request execute --route "PUT /notes/{book_id}/share" --param book_id=<book-id> --dry-run
 GOODREADS_COOKIE='<cookie-header>' GOODREADS_CSRF_TOKEN='<token>' \
   goodreads-cli request execute --route "PUT /notes/{book_id}/share" --param book_id=<book-id>
+GOODREADS_ALLOW_NOTES_PUBLICIZE=1 GOODREADS_COOKIE='<cookie-header>' GOODREADS_CSRF_TOKEN='<token>' \
+  goodreads-cli notes publicize --book-id <book-id> --approved-book-id <book-id> --execute
+goodreads-cli notes publicize-plan --book-id <book-id> --book-slug <book-slug> --user-slug <user-slug> --approved-book-id <book-id>
 ```
 
 After a live mutation, reload the relevant Goodreads page and verify the account-visible state before claiming success.

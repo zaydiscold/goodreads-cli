@@ -1,3 +1,6 @@
+import { mkdtemp, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 import { describe, expect, it } from "vitest";
 import { buildLiveRequestPlan } from "../src/client/live.js";
 import { parseBookPage } from "../src/parsers/bookPage.js";
@@ -7,15 +10,16 @@ import { parseShelfHtml } from "../src/parsers/shelfHtml.js";
 import { parseShelfRss } from "../src/parsers/rss.js";
 import { loadApiMapRoutes, loadBrowserRoutes, planBookshelfMove, planNotesPublicize, searchApiRoutes } from "../src/lib.js";
 import { riskLevelForRoute } from "../src/risk.js";
+import { buildRecentReadingNotes, checkPublicizeApproval } from "../src/workflows/recentReading.js";
 
 describe("Goodreads parsers", () => {
   it("discovers account shelf inventory and rows from shelf HTML", () => {
     const html = `
       <html><head><title>Zayd Khan's 'to-read' books on Goodreads (132 books)</title></head>
       <body>
-        <a href="/review/list/179929687?shelf=%23ALL%23">All (28)</a>
-        <a href="/review/list/179929687-zayd-khan?shelf=to-read">Want to Read (132)</a>
-        <a href="/review/list/179929687-zayd-khan?shelf=for-the-aesthetic">for-the-aesthetic (2)</a>
+        <a href="/review/list/123456?shelf=%23ALL%23">All (28)</a>
+        <a href="/review/list/reader-user?shelf=to-read">Want to Read (132)</a>
+        <a href="/review/list/reader-user?shelf=for-the-aesthetic">for-the-aesthetic (2)</a>
         <table id="booksBody">
           <tr id="review_111">
             <td><input type="checkbox" name="reviews[111]" value="111"></td>
@@ -25,7 +29,7 @@ describe("Goodreads parsers", () => {
         </table>
         <div id="reviewPagination">
           <em class="current">1</em>
-          <a rel="next" href="/review/list/179929687?page=2&amp;shelf=to-read">2</a>
+          <a rel="next" href="/review/list/123456?page=2&amp;shelf=to-read">2</a>
         </div>
       </body></html>
     `;
@@ -135,17 +139,18 @@ describe("Goodreads parsers", () => {
   });
 
   it("builds dry-run plans for notes and shelf writes", () => {
-    expect(planNotesPublicize({ bookId: "48526390", userSlug: "179929687-zayd-khan" })).toMatchObject({
+    expect(planNotesPublicize({ bookId: "654321", bookSlug: "654321-example-book", userSlug: "reader-user" })).toMatchObject({
       dryRun: true,
       method: "PUT",
-      route: "/notes/48526390/share",
-      verify: "/notes/48526390/179929687-zayd-khan"
+      route: "/notes/654321/share",
+      verifyRouteTemplate: "/notes/{book_slug}/{user_slug}",
+      verify: "/notes/654321-example-book/reader-user"
     });
-    expect(planBookshelfMove({ reviewId: "111", toShelf: "read", user: "179929687" })).toMatchObject({
+    expect(planBookshelfMove({ reviewId: "111", toShelf: "read", user: "123456" })).toMatchObject({
       dryRun: true,
       method: "POST",
-      route: "/review/update_list/179929687",
-      verify: "/review/list/179929687?shelf=read"
+      route: "/review/update_list/123456",
+      verify: "/review/list/123456?shelf=read"
     });
   });
 
@@ -153,13 +158,65 @@ describe("Goodreads parsers", () => {
     const route = (await loadApiMapRoutes()).find((candidate) => candidate.path === "/notes/{book_id}/share");
     expect(route).toBeTruthy();
     const plan = buildLiveRequestPlan(route!, {
-      pathParams: { book_id: "48526390" },
+      pathParams: { book_id: "654321" },
       dryRun: true
     });
-    expect(plan.url).toBe("https://www.goodreads.com/notes/48526390/share");
+    expect(plan.url).toBe("https://www.goodreads.com/notes/654321/share");
     expect(plan.execute).toBe(false);
     expect(plan.requiresCookie).toBe(true);
     expect(riskLevelForRoute(route!)).toBe("write-mutate");
+  });
+
+  it("joins recent shelf rows to notes links without raw highlight text", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "goodreads-recent-"));
+    await writeFile(
+      join(dir, "shelf-read.html"),
+      `
+        <html><head><title>Reader's 'read' books on Goodreads (1 book)</title></head>
+        <body>
+          <a href="/review/list/current-user?shelf=read">Read (1)</a>
+          <table id="booksBody">
+            <tr id="review_111">
+              <td><input type="checkbox" name="reviews[111]" value="111"></td>
+              <td><a href="/book/show/123-example-book">Example Book</a></td>
+            </tr>
+          </table>
+        </body></html>
+      `
+    );
+    await writeFile(
+      join(dir, "notes-index.html"),
+      `
+        <html><body>
+          <a href="/notes/123-example-book/current-user">View notes for Example Book</a>
+          <span class="highlightText">This private highlight must not leak.</span>
+        </body></html>
+      `
+    );
+
+    const joined = await buildRecentReadingNotes({ fixtureDir: dir, shelves: ["read"], limit: 10 });
+    expect(joined.books[0]?.notes.hasNotesIndexMatch).toBe(true);
+    expect(joined.books[0]?.notes.notesBookSlug).toBe("123-example-book");
+    expect(JSON.stringify(joined)).not.toContain("This private highlight");
+  });
+
+  it("requires exact approval gates for notes publicizing", () => {
+    expect(
+      checkPublicizeApproval({
+        bookId: "123",
+        approvedBookIds: [],
+        execute: false,
+        env: {}
+      }).blockers
+    ).toContain("--execute is required for live notes publicizing");
+    expect(
+      checkPublicizeApproval({
+        bookId: "123",
+        approvedBookIds: ["123"],
+        execute: true,
+        env: { GOODREADS_ALLOW_NOTES_PUBLICIZE: "1" }
+      }).blockers
+    ).toHaveLength(0);
   });
 
   it("loads sanitized authenticated browser route templates", async () => {

@@ -16,13 +16,27 @@ Full read **and** write across Goodreads:
 - **Listopia lists** — read lists and create your own.
 - **Reading challenges** — pull goals, quests, and achievement data.
 - **Kindle Notes & Highlights** — read your notes per book, paginated.
+- **Recent-reading notes workflows** — join current/read shelves to Kindle notes visibility, plan publicizing, and keep raw highlight text private.
+- **Comments and annotations** — inspect route/metadata shape without emitting raw comment bodies or highlight text.
 - **Quotes** — add, remove, and reorder quotes (up/down/top/bottom).
 - **Recommendations** — yours and friends'.
 - **Genre / topic search** — genres, topics, discussions.
 - **Giveaways** — browse and enter (including Kindle giveaways).
 - **Home feed** — post a status, update reading progress, and comment.
 
-Every write defaults to **dry-run** — it prints the exact request it *would* send and stops. To actually mutate your account you pass `--live-write` and supply your own session (cookie + CSRF token, or the AppSync JWT for the GraphQL ops). Nothing touches your account by accident.
+Most workflow commands default to **dry-run** — they print the exact request they would send and stop. The low-level `request execute` command is intentionally live-capable by default for mapped routes, so pass `--dry-run` when previewing it. The notes/highlights publicize workflow is stricter: it requires `--execute`, an exact `--approved-book-id`, `GOODREADS_ALLOW_NOTES_PUBLICIZE=1`, and caller-owned session inputs before it will submit.
+
+## Recent Reading And Notes
+
+```bash
+goodreads-cli recent-reading list --fixture-dir <private-fixtures> --shelves currently-reading,read --limit 25 --json
+goodreads-cli recent-reading notes --fixture-dir <private-fixtures> --notes-index-fixture <notes-index.html> --json
+goodreads-cli recent-reading publicize-plan --fixture-dir <private-fixtures> --approved-book-id <book-id> --json
+goodreads-cli notes publicize-plan --book-id <book-id> --book-slug <book-slug> --user-slug <user-slug> --detail-fixture <notes-detail.html> --approved-book-id <book-id> --json
+GOODREADS_ALLOW_NOTES_PUBLICIZE=1 goodreads-cli notes publicize --book-id <book-id> --approved-book-id <book-id> --execute --json
+```
+
+These commands never emit raw Kindle highlight text. The write route uses numeric `book_id`; reload verification uses `/notes/{book_slug}/{user_slug}` from the notes link. Public proof should include only counts, status, timing, and redacted route shape.
 
 ## The map is the point
 

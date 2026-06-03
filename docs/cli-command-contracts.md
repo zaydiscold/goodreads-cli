@@ -17,8 +17,8 @@ Every command should include:
 ```json
 {
   "source": "goodreads-web",
-  "accountUserId": "179929687",
-  "accountUserSlug": "179929687-zayd-khan",
+  "accountUserId": "<user-id-or-null>",
+  "accountUserSlug": "<user-slug-or-null>",
   "generatedAt": "ISO-8601",
   "confidence": "high|medium|low",
   "warnings": []
@@ -64,7 +64,7 @@ Output shape:
       "slug": "to-read",
       "displayName": "Want to Read",
       "count": 132,
-      "href": "/review/list/179929687-zayd-khan?shelf=to-read",
+      "href": "/review/list/<user-slug>?shelf=to-read",
       "kind": "account_shelf",
       "isObservedForThisAccount": true
     }
@@ -193,6 +193,39 @@ Fixture proof:
 notes-mr-whisper: 12 notes, spoiler toggles present, no raw highlight text emitted
 ```
 
+## `recent-reading`
+
+Purpose: join currently-reading/read shelf rows to Kindle Notes & Highlights metadata.
+
+Commands:
+
+```text
+recent-reading list --fixture-dir <private-fixtures> --shelves currently-reading,read --limit 25
+recent-reading notes --fixture-dir <private-fixtures> --notes-index-fixture <notes-index.html>
+recent-reading publicize-plan --fixture-dir <private-fixtures> --approved-book-id <book-id>
+recent-reading publicize --book-id <book-id> --approved-book-id <book-id> --execute
+notes publicize-plan --book-id <book-id> --book-slug <book-slug> --user-slug <user-slug> --approved-book-id <book-id>
+```
+
+Rules:
+
+- `--fixture-dir` is required; there is no hardcoded account fixture default.
+- Do not emit raw Kindle highlight text or raw comment bodies.
+- `publicize-plan` never submits a Goodreads write.
+- `publicize` submits only when `--execute`, exact `--approved-book-id`, and `GOODREADS_ALLOW_NOTES_PUBLICIZE=1` are all present.
+- The mutation route uses numeric `book_id`; reload verification uses `/notes/{book_slug}/{user_slug}` from the notes link.
+- After any approved write, reload the notes detail page and verify visible count equals total count before claiming success.
+
+## `annotations` and `comments`
+
+Purpose: map comments/annotations enough for agents to reason about notes and recent-reading activity without leaking raw text.
+
+Rules:
+
+- `annotations list` emits redacted annotation ids by default; `--include-private-ids` is private-local only.
+- `annotations thoughts-plan` is plan-only until a separately approved capture proves payload and reload verification.
+- `comments list` can plan `/comment/list/{user_slug}` or parse a fixture, but comment writes remain disabled.
+
 ## `messages folders`
 
 Purpose: discover account message folders.
@@ -241,6 +274,8 @@ These write-plan commands produce dry-run plans:
 books move --book-id <id> --to-shelf <slug> --dry-run
 shelves create --name <name> --dry-run
 notes publicize --book-id <id> --dry-run
+notes publicize-plan --book-id <id> --book-slug <book-slug> --user-slug <slug> --approved-book-id <id>
+recent-reading publicize-plan --fixture-dir <private-fixtures> --approved-book-id <id>
 messages move --message-id <id> --folder saved --dry-run
 messages mark-read --message-id <id> --dry-run
 ```
@@ -255,4 +290,4 @@ Dry-run output must include:
 - verification URL;
 - explicit warning that live execution mutates the account.
 
-Generic `goodreads-cli request execute` is live-capable for mapped routes and has no `GOODREADS_ALLOW_WRITES` gate. It requires caller-owned auth (`GOODREADS_COOKIE` plus `GOODREADS_CSRF_TOKEN` or form authenticity token where needed), emits `[WRITES TO LIVE GOODREADS]` for mutating routes, and supports `--dry-run` for testing.
+Generic `goodreads-cli request execute` is live-capable for mapped routes and has no `GOODREADS_ALLOW_WRITES` gate. It requires caller-owned auth (`GOODREADS_COOKIE` plus `GOODREADS_CSRF_TOKEN` or form authenticity token where needed), emits `[WRITES TO LIVE GOODREADS]` for mutating routes, and supports `--dry-run` for testing. Higher-level notes publicize workflow commands are stricter and require `GOODREADS_ALLOW_NOTES_PUBLICIZE=1`, `--execute`, and exact approved book ids. The notes publicize mutation uses numeric `book_id`; reload verification uses `/notes/{book_slug}/{user_slug}`.

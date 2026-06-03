@@ -6,13 +6,18 @@ import {
   loadBrowserRoutes,
   loadApiMapRoutes,
   planBookshelfMove,
-  planNotesPublicize,
   searchApiRoutes,
   summarizeBrowserRoutes,
   type GoodreadsRoute
 } from "@zaydiscold/goodreads-cli/lib";
 import { buildLiveRequestPlan, executeLiveRequest } from "@zaydiscold/goodreads-cli/live";
 import { emitLiveMutationWarning, riskLevelForRoute, type RiskLevel } from "@zaydiscold/goodreads-cli/risk";
+import {
+  buildRecentReadingList,
+  buildRecentReadingNotes,
+  buildRecentReadingPublicizePlan,
+  buildNotesPublicizeWorkflowPlan
+} from "@zaydiscold/goodreads-cli/workflows";
 
 const server = new McpServer({
   name: "goodreads-cli-mcp",
@@ -122,7 +127,7 @@ server.registerTool(
     inputSchema: {
       reviewId: z.string(),
       toShelf: z.string(),
-      user: z.string().default("179929687")
+      user: z.string()
     }
   },
   async ({ reviewId, toShelf, user }) => jsonResponse(planBookshelfMove({ reviewId, toShelf, user }))
@@ -132,14 +137,84 @@ server.registerTool(
   "goodreads_notes_publicize_plan",
   {
     title: "Goodreads Notes Publicize Plan",
-    description: "Build a dry-run plan for publicizing notes/highlights for one book. This does not submit anything.",
+    description: "Build the verified workflow plan for publicizing notes/highlights for one book. This does not submit anything.",
     annotations: toolAnnotations(true, "read"),
     inputSchema: {
       bookId: z.string(),
-      userSlug: z.string().optional()
+      bookSlug: z.string().optional(),
+      userSlug: z.string().optional(),
+      detailFixture: z.string().optional(),
+      approvedBookId: z.array(z.string()).default([])
     }
   },
-  async ({ bookId, userSlug }) => jsonResponse(planNotesPublicize({ bookId, userSlug }))
+  async ({ bookId, bookSlug, userSlug, detailFixture, approvedBookId }) =>
+    jsonResponse(
+      await buildNotesPublicizeWorkflowPlan({
+        bookId,
+        bookSlug,
+        userSlug,
+        detailFixture,
+        approvedBookIds: approvedBookId
+      })
+    )
+);
+
+server.registerTool(
+  "goodreads_recent_reading_list",
+  {
+    title: "Goodreads Recent Reading List",
+    description: "List current/recent shelf books from local authenticated fixtures. No Goodreads request is sent.",
+    annotations: toolAnnotations(true, "read"),
+    inputSchema: {
+      fixtureDir: z.string(),
+      shelves: z.array(z.string()).default(["currently-reading", "read"]),
+      limit: z.number().int().min(1).max(200).default(25)
+    }
+  },
+  async ({ fixtureDir, shelves, limit }) => jsonResponse(await buildRecentReadingList({ fixtureDir, shelves, limit }))
+);
+
+server.registerTool(
+  "goodreads_recent_reading_notes",
+  {
+    title: "Goodreads Recent Reading Notes",
+    description: "Join current/recent books to notes/highlights metadata without raw highlight text.",
+    annotations: toolAnnotations(true, "read"),
+    inputSchema: {
+      fixtureDir: z.string(),
+      notesIndexFixture: z.string().optional(),
+      shelves: z.array(z.string()).default(["currently-reading", "read"]),
+      limit: z.number().int().min(1).max(200).default(25)
+    }
+  },
+  async ({ fixtureDir, notesIndexFixture, shelves, limit }) =>
+    jsonResponse(await buildRecentReadingNotes({ fixtureDir, notesIndexFixture, shelves, limit }))
+);
+
+server.registerTool(
+  "goodreads_recent_reading_publicize_plan",
+  {
+    title: "Goodreads Recent Reading Publicize Plan",
+    description: "Plan notes/highlights publicization from recent-reading inventory. This never submits Goodreads writes.",
+    annotations: toolAnnotations(true, "read"),
+    inputSchema: {
+      fixtureDir: z.string(),
+      notesIndexFixture: z.string().optional(),
+      shelves: z.array(z.string()).default(["currently-reading", "read"]),
+      limit: z.number().int().min(1).max(200).default(25),
+      approvedBookId: z.array(z.string()).default([])
+    }
+  },
+  async ({ fixtureDir, notesIndexFixture, shelves, limit, approvedBookId }) =>
+    jsonResponse(
+      await buildRecentReadingPublicizePlan({
+        fixtureDir,
+        notesIndexFixture,
+        shelves,
+        limit,
+        approvedBookIds: approvedBookId
+      })
+    )
 );
 
 server.registerTool(

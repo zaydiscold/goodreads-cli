@@ -105,6 +105,11 @@ export interface NotesPageParse {
   kind: "notes_page";
   title: string | null;
   noteCount: number;
+  visibleNoteCount: number;
+  hiddenNoteCount: number;
+  notePersistEndpointCount: number;
+  spoilerToggleCount: number;
+  shelfGateDetected: boolean;
   visibleCounts: Record<string, number>;
   notes: Array<{
     annotationPairId: string | null;
@@ -114,6 +119,9 @@ export interface NotesPageParse {
   }>;
   noteBookLinks: Array<{
     href: string;
+    bookSlug: string | null;
+    bookId: string | null;
+    userSlug: string | null;
     labelLength: number;
   }>;
 }

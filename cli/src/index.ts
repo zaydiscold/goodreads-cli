@@ -12,12 +12,15 @@
 // through request execute; use --dry-run for previews.
 
 import { Command } from "commander";
+import { annotationsCommand } from "./commands/annotations.js";
 import { apiMapCommand } from "./commands/apiMap.js";
 import { bookCommand } from "./commands/book.js";
 import { booksCommand } from "./commands/books.js";
+import { commentsCommand } from "./commands/comments.js";
 import { messagesCommand } from "./commands/messages.js";
 import { notesCommand } from "./commands/notes.js";
 import { requestCommand } from "./commands/request.js";
+import { recentReadingCommand } from "./commands/recentReading.js";
 import { shelvesCommand } from "./commands/shelves.js";
 import { writePlanCommand } from "./commands/writePlan.js";
 
@@ -29,11 +32,14 @@ program
   .version("0.1.0");
 
 program.addCommand(apiMapCommand());
+program.addCommand(annotationsCommand());
 program.addCommand(shelvesCommand());
 program.addCommand(booksCommand());
 program.addCommand(bookCommand());
+program.addCommand(commentsCommand());
 program.addCommand(messagesCommand());
 program.addCommand(notesCommand());
+program.addCommand(recentReadingCommand());
 program.addCommand(requestCommand());
 program.addCommand(writePlanCommand());
 

@@ -66,7 +66,7 @@ The CLI should not print cookie values. For replay, import cookies into a jar fr
 | GET | `/comment/list/:user_slug` | comments/posts | browser map | `comments list` |
 | GET | `/notes/:user_slug` | notes/highlights index | browser map | `notes list` |
 | GET | `/notes/:user_id/load_more` | notes pagination XHR | browser map | notes pagination |
-| GET | `/notes/:book_slug/:user_slug` | notes book detail | browser map | `notes show --book-id` |
+| GET | `/notes/:book_slug/:user_slug` | notes book detail | browser map | `notes show --book-slug` |
 | PUT | `/notes/:book_id/share` | notes publicize write | approved write proof | `notes publicize --execute` |
 | POST | `/notes/:book_id/:annotation_pair_id/note` | per-note thought write | DOM only, unsubmitted | disabled until capture |
 | GET | `/notifications` | notifications | browser map | `notifications list` |
@@ -126,8 +126,8 @@ The CLI should not print cookie values. For replay, import cookies into a jar fr
 The bookshelf UI accepts numeric and slugged user forms:
 
 ```text
-/review/list/179929687
-/review/list/179929687-zayd-khan
+/review/list/<user-id>
+/review/list/<user-slug>
 ```
 
 Observed shelf query values for the current logged-in account:
@@ -149,7 +149,7 @@ The first parser target should be `/review/list/:user?shelf=<shelf>`, because it
 Public RSS fallback:
 
 ```text
-/review/list_rss/179929687?shelf=read
+/review/list_rss/<user-id>?shelf=read
 ```
 
 The RSS route returned `200 application/xml` without browser cookies in a live probe. It includes structured book/user fields and is a good public fallback, but it is not a full authenticated shelf export. The logged-in page can expose a private `key=` RSS URL in `link rel="alternate"`; that value must stay redacted and local.
@@ -174,7 +174,7 @@ want-to-read-again
 Batch move/add/remove surface:
 
 ```text
-POST /review/update_list/179929687
+POST /review/update_list/<user-id>
 ```
 
 Important fields:
@@ -210,19 +210,17 @@ Approved write endpoint:
 PUT /notes/:book_id/share
 ```
 
-Observed successful book ids:
+Observed successful book ids were account-specific and are intentionally omitted
+from this shareable API map.
 
 ```text
-218134959
-48526390
-56798941
-19269993
+<book-id>
 ```
 
 One pasted page was already fully visible:
 
 ```text
-220329192
+<book-id>
 ```
 
 Safety contract:
