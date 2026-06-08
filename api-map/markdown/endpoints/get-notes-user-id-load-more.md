@@ -1,4 +1,4 @@
-# GET /notes/{user_id}/load_more
+# Notes 03 — GET /notes/{user_id}/load_more
 
 Mutation: no
 Risk: read

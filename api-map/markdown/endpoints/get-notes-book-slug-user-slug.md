@@ -1,6 +1,6 @@
-# GET /notes/{book_slug}/{user_slug}
+# Notes 01 — GET /notes/{book_slug}/{user_slug}
 
-Mutation: no
+Notes/highlights detail page
 Risk: read
 
 Summary: Notes/highlights detail page for one book and user.
