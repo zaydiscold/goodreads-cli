@@ -37,6 +37,57 @@ Run `goodreads-cli-mcp` for agent use. It exposes route-map search, sanitized br
 
 Read `docs/mcp-agent-surface.md` before using the MCP planner tools. Goodreads shelves, message folders, notes modules, comments, and pagination are account-specific inventory; discover the current page/account state first.
 
+## Auth Setup
+
+The CLI needs your Goodreads session to make live requests. Extract credentials from your browser:
+
+```bash
+# 1. Start Chrome with remote debugging
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --remote-debugging-address=127.0.0.1 --remote-debugging-port=9222 \
+  --user-data-dir="$HOME/Library/Application Support/chrome-debug" \
+  --no-first-run --no-default-browser-check
+
+# 2. Copy your logged-in cookies to the debug profile
+cp "$HOME/Library/Application Support/Google/Chrome/Profile 1/Cookies" \
+   "$HOME/Library/Application Support/chrome-debug/Default/Cookies"
+
+# 3. Navigate to goodreads.com in the debug Chrome (via CDP), then extract:
+#    - GOODREADS_COOKIE = all goodreads.com cookies (; -separated)
+#    - GOODREADS_CSRF_TOKEN = meta[name="csrf-token"].content
+# 4. Save to ~/.goodreads/auth.sh (chmod 600):
+#    export GOODREADS_COOKIE='...'
+#    export GOODREADS_CSRF_TOKEN='...'
+#    export GOODREADS_ALLOW_NOTES_PUBLICIZE=1
+```
+
+Source the file before running live commands: `source ~/.goodreads/auth.sh`
+
+## Browser Fixture Capture
+
+The `recent-reading` workflow works with saved HTML fixtures. To capture them:
+
+1. Navigate the debug Chrome to your shelf pages: `/review/list/{user_id}?shelf=read&per_page=100`
+2. Wait for the dynamic book rows to render (`tr[id^="review_"]` elements appear)
+3. Save `document.body.innerHTML` as `shelf-{shelf}.html` in your fixtures directory
+4. Also save your notes index: `/notes/{user_slug}` → `notes-index.html`
+
+## Notes Publicize (corrected)
+
+The `PUT /notes/{book_id}/share` endpoint requires form body `visible=true` to make notes public. Without it, the endpoint defaults to hiding annotations. This was verified via live CDP network capture of the "Make all N visible" button click.
+
+```bash
+# Dry-run first:
+GOODREADS_ALLOW_NOTES_PUBLICIZE=1 goodreads-cli notes publicize \
+  --book-id <book-id> --approved-book-id <book-id> --dry-run --json
+
+# Execute:
+GOODREADS_ALLOW_NOTES_PUBLICIZE=1 goodreads-cli notes publicize \
+  --book-id <book-id> --approved-book-id <book-id> --execute --json
+```
+
+Verify by checking `data-visible-count` or `data-visible='true'` on the reloaded notes detail page.
+
 ## Safety
 
 - Discover shelves/folders/modules before acting.
