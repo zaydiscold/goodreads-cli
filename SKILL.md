@@ -1,111 +1,173 @@
 ---
 name: goodreads-cli
-description: Use the Goodreads API map and live-capable CLI to inspect and modify shelves, books, notes, messages, and account routes.
+description: Complete Goodreads CLI + MCP — publicize/hide notes, manage shelves, extract auth via CDP, capture fixtures, cross-machine dispatch. Full read+write across the undocumented Goodreads web surface.
+triggers:
+  - "publicize my Goodreads notes"
+  - "make Goodreads highlights public"
+  - "Goodreads automation"
+  - "wire goodreads MCP"
+  - "goodreads-cli"
+  - "extract Goodreads auth"
+  - "goodreads shelf"
+  - "hide Goodreads notes"
+  - "fixture capture"
+  - "cross-machine goodreads"
 ---
 
-# goodreads-cli
+# Goodreads CLI + MCP
 
-Use this skill when working with Goodreads shelves, books, notes/highlights, messages, or route maps.
+Drive your Goodreads account from the terminal. Amazon killed the public API in December 2020 — this CLI drives the undocumented web surface via a hand-mapped OpenAPI spec, CDP-captured routes, and live-verified write endpoints.
 
-## Commands
+**Repo:** `zaydiscold/goodreads-cli` at `~/Desktop/goodreads-cli`
+**Auth:** `~/.goodreads/auth.sh` (chmod 600, source before use)
+**MCP:** 11 tools wired into Hermes as `goodreads_*`
 
-```bash
-goodreads-cli api-map routes --json
-goodreads-cli api-map browser-routes --summary --json
-goodreads-cli api-map search "publicize notes" --json
-goodreads-cli shelves discover --fixture <private-fixtures>/shelf-to-read.html --json
-goodreads-cli books list --shelf read --fixture-dir <private-fixtures> --json
-goodreads-cli books export --fixture-dir <private-fixtures> --shelves read,to-read --json
-goodreads-cli recent-reading list --fixture-dir <private-fixtures> --shelves currently-reading,read --limit 25 --json
-goodreads-cli recent-reading notes --fixture-dir <private-fixtures> --notes-index-fixture <private-fixtures>/notes.html --json
-goodreads-cli recent-reading publicize-plan --fixture-dir <private-fixtures> --approved-book-id <book-id> --json
-goodreads-cli notes inspect --fixture <private-fixtures>/notes-detail.html --json
-goodreads-cli notes publicize-plan --book-id <book-id> --book-slug <book-slug> --user-slug <user-slug> --detail-fixture <private-fixtures>/notes-detail.html --approved-book-id <book-id> --json
-GOODREADS_ALLOW_NOTES_PUBLICIZE=1 goodreads-cli notes publicize --book-id <book-id> --approved-book-id <book-id> --execute --json
-goodreads-cli annotations list --fixture <private-fixtures>/notes-detail.html --json
-goodreads-cli comments list --user-slug <user-slug> --json
-goodreads-cli messages list --fixture <private-fixtures>/message-inbox.html --json
-goodreads-cli write-plan books move --review-id <id> --to-shelf <slug>
-goodreads-cli write-plan notes publicize --book-id <id> --book-slug <book-slug> --user-slug <slug>
-goodreads-cli request plan --route "PUT /notes/{book_id}/share" --param book_id=<id>
-goodreads-cli request execute --route "PUT /notes/{book_id}/share" --param book_id=<id> --dry-run
-```
+## 1. Auth Setup
 
-## MCP
-
-Run `goodreads-cli-mcp` for agent use. It exposes route-map search, sanitized browser-route inventory, dynamic account inventory guidance, dry-run planners, and a risk-annotated `goodreads_request_execute` tool. Reads advertise `mcp:read-only=true`; writes advertise `mcp:read-only=false` plus `mcp:risk`.
-
-Read `docs/mcp-agent-surface.md` before using the MCP planner tools. Goodreads shelves, message folders, notes modules, comments, and pagination are account-specific inventory; discover the current page/account state first.
-
-## Auth Setup
-
-The CLI needs your Goodreads session to make live requests. Extract credentials from your browser:
+### Extract from Chrome via CDP (macOS)
 
 ```bash
-# 1. Start Chrome with remote debugging
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-  --remote-debugging-address=127.0.0.1 --remote-debugging-port=9222 \
+# Copy logged-in cookies to debug profile
+cp ~/Library/Application\ Support/Google/Chrome/Profile\ 1/Cookies \
+   ~/Library/Application\ Support/chrome-debug/Default/Cookies
+
+# Launch debug Chrome
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+  --remote-debugging-port=9222 \
   --user-data-dir="$HOME/Library/Application Support/chrome-debug" \
-  --no-first-run --no-default-browser-check
+  --no-first-run --no-default-browser-check --remote-allow-origins=* &
 
-# 2. Copy your logged-in cookies to the debug profile
-cp "$HOME/Library/Application Support/Google/Chrome/Profile 1/Cookies" \
-   "$HOME/Library/Application Support/chrome-debug/Default/Cookies"
-
-# 3. Navigate to goodreads.com in the debug Chrome (via CDP), then extract:
-#    - GOODREADS_COOKIE = all goodreads.com cookies (; -separated)
-#    - GOODREADS_CSRF_TOKEN = meta[name="csrf-token"].content
-# 4. Save to ~/.goodreads/auth.sh (chmod 600):
-#    export GOODREADS_COOKIE='...'
-#    export GOODREADS_CSRF_TOKEN='...'
-#    export GOODREADS_ALLOW_NOTES_PUBLICIZE=1
+# Extract via Python CDP (navigate to goodreads.com, get cookies + CSRF)
+# Save to ~/.goodreads/auth.sh:
+export GOODREADS_COOKIE='...'
+export GOODREADS_CSRF_TOKEN='...'
+export GOODREADS_ALLOW_NOTES_PUBLICIZE=1
 ```
 
-Source the file before running live commands: `source ~/.goodreads/auth.sh`
+**Cookie quoting:** Goodreads cookies contain embedded double-quotes (`session-token="Mo5+..."`, `x-main="Ii1lsrN4..."`). Use Python's `shlex.quote()` for single-quote wrapping. Double-quote wrapping BREAKS silently.
 
-## Browser Fixture Capture
-
-The `recent-reading` workflow works with saved HTML fixtures. To capture them:
-
-1. Navigate the debug Chrome to your shelf pages: `/review/list/{user_id}?shelf=read&per_page=100`
-2. Wait for the dynamic book rows to render (`tr[id^="review_"]` elements appear)
-3. Save `document.body.innerHTML` as `shelf-{shelf}.html` in your fixtures directory
-4. Also save your notes index: `/notes/{user_slug}` → `notes-index.html`
-
-## Notes Publicize (corrected)
-
-The `PUT /notes/{book_id}/share` endpoint requires form body `visible=true` to make notes public. Without it, the endpoint defaults to hiding annotations. This was verified via live CDP network capture of the "Make all N visible" button click.
+### Transfer to mothership (Windows)
 
 ```bash
-# Dry-run first:
-GOODREADS_ALLOW_NOTES_PUBLICIZE=1 goodreads-cli notes publicize \
-  --book-id <book-id> --approved-book-id <book-id> --dry-run --json
-
-# Execute:
-GOODREADS_ALLOW_NOTES_PUBLICIZE=1 goodreads-cli notes publicize \
-  --book-id <book-id> --approved-book-id <book-id> --execute --json
+source ~/.goodreads/auth.sh
+sed "s/^export /set \"/" ~/.goodreads/auth.sh | sed "s/='\(.*\)'/=\1\"/" > /tmp/auth.bat
+echo "@echo off" | cat - /tmp/auth.bat > /tmp/t && mv /tmp/t /tmp/auth.bat
+scp /tmp/auth.bat mothership:C:/Users/ZaydK/.goodreads/auth.bat
 ```
 
-Verify by checking `data-visible-count` or `data-visible='true'` on the reloaded notes detail page.
+## 2. MCP Wiring
 
-## Safety
+```bash
+source ~/.goodreads/auth.sh
+echo y | hermes mcp add goodreads \
+  --command node \
+  --args ~/Desktop/goodreads-cli/mcp/dist/server.js \
+  --env "GOODREADS_COOKIE=$GOODREADS_COOKIE" \
+  --env "GOODREADS_CSRF_TOKEN=*** \
+  --env "GOODREADS_ALLOW_NOTES_PUBLICIZE=1"
+```
 
-- Discover shelves/folders/modules before acting.
-- Treat private fixtures as local-only.
-- Do not print raw Kindle highlights, raw message bodies, cookies, CSRF tokens, or private RSS keys.
-- Generic personal-side `request execute` live writes are real. There is no generic `GOODREADS_ALLOW_WRITES` env gate.
-- The higher-level notes publicize workflow is stricter and requires `GOODREADS_ALLOW_NOTES_PUBLICIZE=1`, `--execute`, and the exact `--approved-book-id`.
-- Notes writes use numeric `book_id`; notes detail verification uses `/notes/{book_slug}/{user_slug}` from the notes link.
-- Use `GOODREADS_COOKIE` plus `GOODREADS_CSRF_TOKEN` or a current form `authenticity_token` for authenticated Rails-form mutations.
-- Mutating live execution prints `[WRITES TO LIVE GOODREADS]` to stderr. Use `--dry-run` when testing.
+11 MCP tools: `api_map_routes`, `route_search`, `browser_routes`, `bookshelf_move_plan`, `notes_publicize_plan`, `notes_hide`, `recent_reading_list`, `recent_reading_notes`, `recent_reading_publicize_plan`, `request_execute`, `dynamic_inventory_guidance`.
 
-## Self-Extension Protocol
+## 3. Notes Publicize/Hide
 
-If you discover an endpoint on Goodreads that is not in `api-map/`:
+### CRITICAL: PUT /notes/{book_id}/share requires visible=true form body
 
-1. Add it to `api-map/openapi/` and `api-map/markdown/`.
-2. Write a parser, fixture, test, or live-safe proof.
-3. Open a PR to `zaydiscold/goodreads-cli` main.
-4. Tag `@ColdCooks` in the PR description.
+The endpoint returns 200 with or without body, but defaults to HIDING without `visible=true`. Verified via live CDP network capture of "Make all N visible" button (2026-06-08).
 
-If the endpoint is undocumented, document the discovery method in `docs/undocumented-surface.md`.
+**Publicize (make all visible):**
+```bash
+source ~/.goodreads/auth.sh
+goodreads-cli notes publicize --book-id <id> --approved-book-id <id> --execute --json
+```
+
+**Hide all:**
+```bash
+goodreads-cli notes hide --book-id <id> --approved-book-id <id> --execute --json
+```
+
+**VERIFY after every operation:**
+```bash
+source ~/.goodreads/auth.sh
+curl -s -H "Cookie: $GOODREADS_COOKIE" \
+  "https://www.goodreads.com/notes/<book_slug>/179929687-zayd-khan" \
+  | grep -o "data-visible-count='[0-9]*'"
+```
+
+## 4. Commands Quick Reference
+
+```bash
+# Route discovery
+goodreads-cli api-map routes --json
+goodreads-cli api-map search "publicize notes" --json
+
+# Shelf inventory (needs fixtures)
+goodreads-cli recent-reading list --fixture-dir <dir> --shelves read,currently-reading --json
+
+# Notes workflow
+goodreads-cli recent-reading publicize-plan --fixture-dir <dir> --json
+goodreads-cli notes publicize-plan --book-id <id> --details --json
+goodreads-cli notes publicize --book-id <id> --approved-book-id <id> --execute --json
+goodreads-cli notes hide --book-id <id> --approved-book-id <id> --execute --json
+
+# Raw request
+goodreads-cli request execute --route "PUT /notes/{book_id}/share" \
+  --param "book_id=<id>" --form "visible=true" --dry-run
+```
+
+## 5. Fixture Capture
+
+Goodreads loads shelf/notes data dynamically via XHR. Static HTML dumps are empty.
+
+**Working CDP approach:**
+1. Navigate to shelf: `https://www.goodreads.com/review/list/<user_id>?shelf=<slug>&per_page=100`
+2. Poll: `document.querySelectorAll('tr[id^="review_"], tr.bookalike').length`
+3. Once count > 0, save `document.body.innerHTML`
+4. Wrap: `<!DOCTYPE html><html><head>...</head><body>...</body></html>`
+
+**Key selectors:** `tr[id^="review_"]`, `a[href*="/book/show/"]`, `.field.author a`
+
+**User ID:** `179929687` (Zayd). User slug: `179929687-zayd-khan`.
+
+## 6. Known Gaps
+
+| Area | Status |
+|---|---|
+| Per-note delete | ✅ Verified (`POST /notes/{id}/{annot} _method=delete`) |
+| Per-note visibility toggle | ⚠️ Inferred, not CDP-captured |
+| Per-note spoiler | ⚠️ Inferred, not CDP-captured |
+| Per-note like | ❌ Not mapped |
+| Per-note comment | ❌ Not mapped |
+| Quotes write (add/remove/reorder) | ❌ README claims exist, API map has zero |
+| Pagination (shelf pages 2+) | ❌ CLI only reads page 1 |
+
+## 7. Shelf Gate
+
+The "Make all N visible" button opens a shelving modal when the browser session is NOT properly authenticated. If the page shows "Read" but the modal says "first add this book to a shelf", the debug Chrome's cookies are stale. Re-copy fresh cookies.
+
+## 8. Cross-Machine (mothership)
+
+```bash
+# Dispatch Claude headless on mothership
+ssh mothership "claude --dangerously-skip-permissions -p '...'"
+
+# Mothership known issues: VRM overheat under sustained load (Z370-P + i7-9700K + RTX 2080 Ti)
+# Python: python (not python3), v3.10.7 at C:\Python310\
+# Node: v24.15.0, pnpm available
+```
+
+## 9. Safety
+
+- Never print raw highlights, cookies, CSRF tokens, or private URLs
+- Every write defaults to dry-run unless `--execute` + approval gates passed
+- Notes publicize requires all three: `--execute`, `--approved-book-id`, `GOODREADS_ALLOW_NOTES_PUBLICIZE=1`
+- Delete is IRREVERSIBLE (but notes may be recoverable via re-publicize)
+- Verify after every live operation — never trust HTTP 200
+
+## 10. Self-Extension Protocol
+
+If you discover an endpoint not in `api-map/`:
+1. Add to `api-map/openapi/` and `api-map/markdown/`
+2. Write parser, fixture, test, or live-safe proof
+3. Open PR to `zaydiscold/goodreads-cli` main
+4. Tag `@ColdCooks`
