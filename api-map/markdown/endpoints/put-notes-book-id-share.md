@@ -3,7 +3,7 @@
 Mutation: yes
 Risk: write-mutate
 
-Summary: Bulk publicize notes/highlights for a book.
+Summary: Bulk publicize or hide notes/highlights for a book.
 
 Tags: notes
 

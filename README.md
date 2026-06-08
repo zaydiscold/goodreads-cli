@@ -202,7 +202,16 @@ The real artifact lives in [`api-map/`](./api-map/):
 - **Per-endpoint Markdown** under [`api-map/markdown/`](./api-map/markdown/) — including the full read+write capture in [`full-surface-2026-05-28.md`](./api-map/markdown/full-surface-2026-05-28.md).
 - A **curl** reference at [`api-map/curl/goodreads-web.sh`](./api-map/curl/goodreads-web.sh) so any of it is reproducible without this CLI.
 
-It covers roughly **60 read routes** (HTML pages, RSS, and CSV exports), about **30 write endpoints** (Rails-UJS form POSTs captured from `data-remote` actions but never fired), and the **AppSync GraphQL** ops for the modern book/rating/feed widgets. Goodreads is a Rails app, so reads are mostly page routes, writes are form POSTs needing a CSRF token, and the newer surfaces speak GraphQL with a separate JWT.
+It covers **65 read routes** (HTML pages, RSS, and CSV exports) and **24 write endpoints** (Rails-UJS form POSTs captured from `data-remote` actions), plus the **AppSync GraphQL** ops for the modern book/rating/feed widgets. Goodreads is a Rails app, so reads are mostly page routes, writes are form POSTs needing a CSRF token, and the newer surfaces speak GraphQL with a separate JWT.
+
+A 2026-06-08 hardening pass live-tested every read route (60/63 returned 200; the rest are the bot-walled `/search` and two param-only routes) and fire-tested the reversible writes. It also closed the biggest coverage gap: the quote write surface (add/remove/reorder) is now in the OpenAPI map and reachable via the `quotes` command — previously the map had zero quote write endpoints. See [`docs/write-operations.md`](./docs/write-operations.md) for the live fire-test results.
+
+```bash
+# Quotes (writes default to dry-run; pass --execute to fire)
+goodreads-cli quotes reorder --quote-id <id> --direction top --execute
+goodreads-cli quotes remove --quote-slug <slug> --execute
+goodreads-cli quotes add --body "<text>" --author "<name>"   # 202 bot-walled on create
+```
 
 ## Extending it
 

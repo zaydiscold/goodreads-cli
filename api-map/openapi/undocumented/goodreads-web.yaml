@@ -21,7 +21,6 @@ tags:
   - name: shelves
   - name: books
   - name: notes
-  - name: quotes
   - name: social
   - name: discovery
   - name: analytics
@@ -900,75 +899,7 @@ paths:
         "200":
           $ref: "#/components/responses/XhrHtmlOrJson"
 
-  /notes/{book_id}/{annotation_pair_id}:
-    delete:
-      tags: [notes]
-      summary: Delete a single Kindle note/highlight.
-      description: |
-        Confirmed via live HTTP test 2026-06-08. Send as POST with `_method=delete` 
-        (Rails UJS convention). This is IRREVERSIBLE — the highlight text is lost 
-        from Goodreads permanently. Defaults to dry-run.
-        Response: `{"message":"Reading note was successfully deleted"}`
-      parameters:
-        - name: book_id
-          in: path
-          required: true
-          schema:
-            type: integer
-        - name: annotation_pair_id
-          in: path
-          required: true
-          schema:
-            type: string
-            description: URL-encoded annotation pair ID from data-annotation-pair-id attribute
-      requestBody:
-        required: true
-        content:
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              properties:
-                _method:
-                  type: string
-                  enum: ["delete"]
-                authenticity_token:
-                  type: string
-              required: [_method]
-      x-observed:
-        artifact: live-http-test
-        status: 200
-        verified: true
-        irreversible: true
-      x-safety:
-        default: dry-run
-        requires_explicit_execute: true
-        warning: "IRREVERSIBLE — permanently removes the highlight from Goodreads"
-      responses:
-        "200":
-          $ref: "#/components/responses/XhrHtmlOrJson"
-    
-  /notes/{book_id}/{annotation_pair_id}/visibility:
-    put:
-      tags: [notes]
-      summary: Toggle individual note visibility. DISCOVERED BUT NOT VERIFIED.
-      description: |
-        Inferred from the ON/OFF toggle switch per note. Likely PUT with 
-        `visible=true/false` body. Needs live CDP capture to confirm.
-      x-confidence: inferred-unverified
-      x-safety:
-        default: disabled
-        requires_approved_write_capture: true
-    
-  /notes/{book_id}/{annotation_pair_id}/spoiler:
-    post:
-      tags: [notes]
-      summary: Mark/unmark individual note as spoiler. DISCOVERED BUT NOT VERIFIED.
-      description: |
-        Inferred from the "Mark as Spoiler" checkbox per note. Needs live CDP capture.
-      x-confidence: inferred-unverified
-      x-safety:
-        default: disabled
-        requires_approved_write_capture: true
+  /notifications:
     get:
       tags: [social]
       summary: User notifications page.
