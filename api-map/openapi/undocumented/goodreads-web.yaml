@@ -21,6 +21,7 @@ tags:
   - name: shelves
   - name: books
   - name: notes
+  - name: quotes
   - name: social
   - name: discovery
   - name: analytics
@@ -383,10 +384,42 @@ paths:
         "200":
           $ref: "#/components/responses/XmlFeed"
 
+  /search:
+    get:
+      tags: [discovery]
+      summary: Canonical site search route (books/authors/lists). Use this, not /search/search.
+      description: >-
+        Live-verified 2026-06-08 as the canonical search endpoint. Goodreads serves a
+        202 anti-bot challenge stub (with a random-length HTML comment) to non-JS clients
+        on this route, so programmatic callers should treat a 202 body as "search is
+        bot-walled" rather than results. /search/search 301-redirects here.
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+          example: harry potter
+        - name: search_type
+          in: query
+          required: false
+          schema:
+            type: string
+            default: books
+      x-observed:
+        artifact: goodreads/research/current-api-sweep-2026-05-22.md
+        source: live redirect capture 2026-06-08
+        status: 202
+      responses:
+        "200":
+          $ref: "#/components/responses/HtmlPage"
+        "202":
+          description: Anti-bot challenge stub returned to non-JS clients.
+
   /search/search:
     get:
       tags: [discovery]
-      summary: Canonical book search route from OpenSearch descriptor.
+      summary: Legacy search route from the OpenSearch descriptor; 301-redirects to /search.
       parameters:
         - name: search_type
           in: query
@@ -396,13 +429,21 @@ paths:
             default: books
         - name: search[query]
           in: query
-          required: true
+          required: false
+          schema:
+            type: string
+        - name: q
+          in: query
+          required: false
           schema:
             type: string
       x-observed:
         artifact: goodreads/research/current-api-sweep-2026-05-22.md
-        source: opensearch.xml
+        source: opensearch.xml; live redirect verified 2026-06-08
+        status: 301
       responses:
+        "301":
+          description: Permanent redirect to /search.
         "200":
           $ref: "#/components/responses/HtmlPage"
 
@@ -429,6 +470,46 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/HtmlPage"
+    post:
+      tags: [quotes]
+      summary: Create (add) a quote.
+      description: >-
+        Live-verified 2026-06-08 as the create target of the /quotes/new form
+        (name="quoteForm"). Multipart or urlencoded body. NOTE: firing this from a
+        non-browser client returns a 202 anti-bot challenge stub and the quote is NOT
+        created — quote creation is bot-walled like /search. Reorder/remove are not.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                authenticity_token:
+                  type: string
+                "quote[author_name]":
+                  type: string
+                "quote[title]":
+                  type: string
+                  description: Optional source/book title.
+                "quote[body]":
+                  type: string
+                  description: The quote text.
+                "quote[tags]":
+                  type: string
+                isbn:
+                  type: string
+      x-observed:
+        source: live form capture 2026-06-08
+        submitted: false
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "302":
+          description: Redirect to the new quote / quotes list on success.
+        "200":
+          $ref: "#/components/responses/HtmlPage"
 
   /quotes/{quote_slug}:
     get:
@@ -449,6 +530,189 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/HtmlPage"
+
+  /quotes/new:
+    get:
+      tags: [quotes]
+      summary: Add-a-quote form. Posts to POST /quotes.
+      description: Live-verified 2026-06-08; form name="quoteForm" action="/quotes" method post.
+      parameters:
+        - name: book_id
+          in: query
+          required: false
+          schema:
+            type: integer
+          description: Optional book to pre-attach the quote to.
+      x-observed:
+        source: live form capture 2026-06-08
+        status: 200
+      responses:
+        "200":
+          $ref: "#/components/responses/HtmlPage"
+
+  /quotes/{quote_slug}/remove:
+    post:
+      tags: [quotes]
+      summary: Remove one quote from the current user's collection.
+      description: >-
+        Live-verified 2026-06-08 from the /quotes/list "Remove this quote" control
+        (rel=nofollow, data-method="post", data-confirm). Identified by quote slug,
+        not numeric id.
+      parameters:
+        - name: quote_slug
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 22890102-dreams-come-true-when-you-don-t-sleep
+        - name: return_url
+          in: query
+          required: false
+          schema:
+            type: string
+      x-observed:
+        source: live form capture 2026-06-08
+        submitted: false
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "302":
+          description: Redirect to return_url (default /quotes/list) on success.
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
+
+  /quotes/move_up/{quote_id}:
+    post:
+      tags: [quotes]
+      summary: Reorder — move a quote up one position in the user's list.
+      description: >-
+        Live-verified 2026-06-08 from /quotes/list reorder controls (data-method post). Numeric quote id.
+        Fire-tested live (move_down then move_up to restore): returns HTTP 302 and reorders. Reversible.
+      parameters:
+        - name: quote_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 105273908
+      x-observed:
+        source: live fire test 2026-06-08
+        status: 302
+        submitted: true
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
+
+  /quotes/move_down/{quote_id}:
+    post:
+      tags: [quotes]
+      summary: Reorder — move a quote down one position in the user's list.
+      description: >-
+        Live-verified 2026-06-08 from /quotes/list reorder controls (data-method post). Numeric quote id.
+        Fire-tested live (move_down then move_up to restore): returns HTTP 302 and reorders. Reversible.
+      parameters:
+        - name: quote_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 105273908
+      x-observed:
+        source: live fire test 2026-06-08
+        status: 302
+        submitted: true
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
+
+  /quotes/move_top/{quote_id}:
+    post:
+      tags: [quotes]
+      summary: Reorder — move a quote to the top of the user's list.
+      description: >-
+        Live-verified 2026-06-08 from /quotes/list reorder controls (data-method post). Numeric quote id.
+        Fire-tested live (move_down then move_up to restore): returns HTTP 302 and reorders. Reversible.
+      parameters:
+        - name: quote_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 105273908
+      x-observed:
+        source: live fire test 2026-06-08
+        status: 302
+        submitted: true
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
+
+  /quotes/move_bottom/{quote_id}:
+    post:
+      tags: [quotes]
+      summary: Reorder — move a quote to the bottom of the user's list.
+      description: >-
+        Live-verified 2026-06-08 from /quotes/list reorder controls (data-method post). Numeric quote id.
+        Fire-tested live (move_down then move_up to restore): returns HTTP 302 and reorders. Reversible.
+      parameters:
+        - name: quote_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 105273908
+      x-observed:
+        source: live fire test 2026-06-08
+        status: 302
+        submitted: true
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
+
+  /quotes/update_positions:
+    post:
+      tags: [quotes]
+      summary: Batch-persist quote ordering (drag-and-drop reorder).
+      description: >-
+        Live-verified 2026-06-08 from the /quotes/list reorder form
+        (action="/quotes/update_positions" method post). Sends the ordered quote ids.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                authenticity_token:
+                  type: string
+                "quote[]":
+                  type: array
+                  items:
+                    type: integer
+                  description: Ordered list of quote ids.
+              additionalProperties: true
+      x-observed:
+        source: live form capture 2026-06-08
+        submitted: false
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
 
   /quotes/widget/{user_slug}:
     get:
@@ -753,6 +1017,57 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/HtmlPage"
+
+  /friend/destroy/{friend_id}:
+    post:
+      tags: [social]
+      summary: Remove (unfriend) a friend.
+      description: >-
+        Live-verified 2026-06-08 from the /friend page (each friend row links
+        /friend/destroy/{id} as a data-method post UJS action).
+      parameters:
+        - name: friend_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          example: 114672800
+      x-observed:
+        source: live form capture 2026-06-08
+        submitted: false
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "302":
+          description: Redirect back to /friend on success.
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
+
+  /friend/add_as_friend/{user_id}:
+    post:
+      tags: [social]
+      summary: Add a user as a friend (send friend request).
+      description: >-
+        Documented inverse of /friend/destroy from static UJS mining; the add control is
+        rendered on profile pages. Not live-fired. Pairs with /friend/destroy for add/remove.
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      x-observed:
+        source: static JS mining; full-surface-2026-05-28
+        submitted: false
+      x-safety:
+        default: dry-run
+        requires_approved_write_capture: true
+      responses:
+        "302":
+          description: Redirect on success.
+        "200":
+          $ref: "#/components/responses/XhrHtmlOrJson"
 
   /topic:
     get:
@@ -1525,10 +1840,15 @@ paths:
                 a:
                   type: string
                   description: Empty/add by default; `remove` removes the shelf.
+      description: >-
+        Fire-tested live 2026-06-08 (add a fresh book to to-read, then a=remove to revert):
+        WORKS in both directions — returns HTTP 200 with a Rails-UJS payload and the shelf
+        membership actually changes. This is the working add/remove path for exclusive shelves.
       x-observed:
         artifact: goodreads/proofs/bookshelf-script-routes-2026-05-22.json
-        source: static JS mining
-        submitted: false
+        source: live fire test 2026-06-08
+        status: 200
+        submitted: true
       x-safety:
         default: dry-run
         requires_approved_write_capture: true
@@ -1540,6 +1860,11 @@ paths:
     post:
       tags: [shelves]
       summary: Remove one book from a shelf from the button helper.
+      description: >-
+        Fire-tested live 2026-06-08 with {book_id, name}: returns HTTP 204 but is a NO-OP
+        for exclusive shelves (to-read/read/currently-reading) — the book stays shelved.
+        Use POST /shelf/add_to_shelf with a=remove to actually remove from an exclusive shelf.
+        This route may still apply to custom shelves with different params (unconfirmed).
       requestBody:
         required: true
         content:
@@ -1555,8 +1880,10 @@ paths:
                   type: string
       x-observed:
         artifact: goodreads/proofs/bookshelf-script-routes-2026-05-22.json
-        source: static JS mining
-        submitted: false
+        source: live fire test 2026-06-08
+        status: 204
+        submitted: true
+        note: 204 no-op on exclusive shelves
       x-safety:
         default: dry-run
         requires_approved_write_capture: true

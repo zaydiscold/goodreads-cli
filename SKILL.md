@@ -138,7 +138,7 @@ Goodreads loads shelf/notes data dynamically via XHR. Static HTML dumps are empt
 | Per-note spoiler | ⚠️ Inferred, not CDP-captured |
 | Per-note like | ❌ Not mapped |
 | Per-note comment | ❌ Not mapped |
-| Quotes write (add/remove/reorder) | ❌ README claims exist, API map has zero |
+| Quotes write (add/remove/reorder) | ✅ Mapped & live-verified 2026-06-08 (`POST /quotes`, `/quotes/{slug}/remove`, `/quotes/move_{up,down,top,bottom}/{id}`, `/quotes/update_positions`) |
 | Pagination (shelf pages 2+) | ❌ CLI only reads page 1 |
 
 ## 7. Shelf Gate
