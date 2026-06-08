@@ -69,7 +69,7 @@ export function notesCommand(): Command {
       }
 
       emitLiveMutationWarning(route);
-      const result = await executeLiveRequest(route, { pathParams: { book_id: options.bookId }, dryRun: false });
+      const result = await executeLiveRequest(route, { pathParams: { book_id: options.bookId }, form: { visible: "true" }, dryRun: false });
       printJson(
         envelope({
           approval,
