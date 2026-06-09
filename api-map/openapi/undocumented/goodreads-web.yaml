@@ -21,6 +21,7 @@ tags:
   - name: shelves
   - name: books
   - name: notes
+  - name: quotes
   - name: social
   - name: discovery
   - name: analytics
